@@ -1,0 +1,15 @@
+H:\github\854ProvaThiago\BatalhaNaval\BatalhaNaval\bin\Debug\net6.0\BatalhaNaval.exe
+H:\github\854ProvaThiago\BatalhaNaval\BatalhaNaval\bin\Debug\net6.0\BatalhaNaval.deps.json
+H:\github\854ProvaThiago\BatalhaNaval\BatalhaNaval\bin\Debug\net6.0\BatalhaNaval.runtimeconfig.json
+H:\github\854ProvaThiago\BatalhaNaval\BatalhaNaval\bin\Debug\net6.0\BatalhaNaval.dll
+H:\github\854ProvaThiago\BatalhaNaval\BatalhaNaval\bin\Debug\net6.0\BatalhaNaval.pdb
+H:\github\854ProvaThiago\BatalhaNaval\BatalhaNaval\obj\Debug\net6.0\BatalhaNaval.csproj.AssemblyReference.cache
+H:\github\854ProvaThiago\BatalhaNaval\BatalhaNaval\obj\Debug\net6.0\BatalhaNaval.GeneratedMSBuildEditorConfig.editorconfig
+H:\github\854ProvaThiago\BatalhaNaval\BatalhaNaval\obj\Debug\net6.0\BatalhaNaval.AssemblyInfoInputs.cache
+H:\github\854ProvaThiago\BatalhaNaval\BatalhaNaval\obj\Debug\net6.0\BatalhaNaval.AssemblyInfo.cs
+H:\github\854ProvaThiago\BatalhaNaval\BatalhaNaval\obj\Debug\net6.0\BatalhaNaval.csproj.CoreCompileInputs.cache
+H:\github\854ProvaThiago\BatalhaNaval\BatalhaNaval\obj\Debug\net6.0\BatalhaNaval.dll
+H:\github\854ProvaThiago\BatalhaNaval\BatalhaNaval\obj\Debug\net6.0\refint\BatalhaNaval.dll
+H:\github\854ProvaThiago\BatalhaNaval\BatalhaNaval\obj\Debug\net6.0\BatalhaNaval.pdb
+H:\github\854ProvaThiago\BatalhaNaval\BatalhaNaval\obj\Debug\net6.0\BatalhaNaval.genruntimeconfig.cache
+H:\github\854ProvaThiago\BatalhaNaval\BatalhaNaval\obj\Debug\net6.0\ref\BatalhaNaval.dll
