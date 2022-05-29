@@ -1,5 +1,5 @@
 ﻿//Nome: Thiago Conceição da Silva Costa
-//versão 1.2
+//versão 1.2.1
 
 #region Inicialização de variáveis
 //using Regex
@@ -119,7 +119,6 @@ void posicionaBarco(string[,] tabuleiroBarcos)
         for (int i = indexLinhaInicial; i <= indexLinhaFinal; i++)
             tabuleiroBarcos[i, colunaInicial] = "B";
     }
-    qtdBarcosJogador1 += tamanhoBarco;
 }
 #endregion
 
@@ -213,7 +212,19 @@ void validaInputBarco(string siglaBarco)
     while (inputValido == false)
     {
         Console.WriteLine("Qual a sua posição?");
+        switch (vezDoJogador1)
+        {
+            case true:
+                imprimeMapa(tabuleiroBarcosJogador1);
+                break;
+            case false:
+                imprimeMapa(tabuleiroBarcosJogador2);
+                break;
+        }
         Console.WriteLine("Exemplo de formato válido: G1H1");
+        Console.WriteLine("Legenda");
+        Console.WriteLine("B = barco (posição já ocupada)");
+        Console.WriteLine("M = mar (posição vazia");
 
         if (!inputNaoEstaVazio())
             continue;
@@ -261,7 +272,10 @@ void validaInputBarco(string siglaBarco)
                     continue;
                 }
                 else
+                {
                     posicionaBarco(tabuleiroBarcosJogador1);
+                    qtdBarcosJogador1 += tamanhoBarco;
+                }
                 break;
             case false:
                 if (!posicaoLivre(tabuleiroBarcosJogador2))
@@ -270,7 +284,10 @@ void validaInputBarco(string siglaBarco)
                     continue;
                 }
                 else
+                {
                     posicionaBarco(tabuleiroBarcosJogador2);
+                    qtdBarcosJogador2 += tamanhoBarco;
+                }
                 break;
         }
 
@@ -282,6 +299,8 @@ void validaInputBarco(string siglaBarco)
     }
 }
 #endregion
+
+
 
 #region Controlador de barcos e de tabuleiro
 //recebe os tipos de barcos e controla quantos barcos o usuário já inseriu
@@ -298,11 +317,9 @@ void preencheTabuleiro()
     {
         case true:
             Console.WriteLine($"É a vez do jogador {nomeJogador1} posicionar os barcos!");
-            Console.WriteLine("");
             break;
         case false:
             Console.WriteLine($"É a vez do jogador {nomeJogador2} posicionar os barcos!");
-            Console.WriteLine("");
             break;
     }
 
@@ -311,10 +328,10 @@ void preencheTabuleiro()
         Console.WriteLine("Selecione o tipo de embarcação.");
         Console.WriteLine("");
         Console.WriteLine("Barcos disponíveis:");
-        Console.WriteLine($"SB = Submarino (2 de tamanho; {qtdSB} disponíveis.");
-        Console.WriteLine($"DS = Destroyers (3 de tamanho; {qtdDS} disponíveis.");
-        Console.WriteLine($"NT = Navio-Tanque (4 de tamanho; {qtdNT} disponíveis.");
-        Console.WriteLine($"PS = Porta-Aviões (5 de tamanho; {qtdPS} disponíveis.");
+        Console.WriteLine($"SB = Submarino (2 de tamanho; {qtdSB} disponíveis)");
+        Console.WriteLine($"DS = Destroyers (3 de tamanho; {qtdDS} disponíveis)");
+        Console.WriteLine($"NT = Navio-Tanque (4 de tamanho; {qtdNT} disponíveis)");
+        Console.WriteLine($"PS = Porta-Aviões (5 de tamanho; {qtdPS} disponíveis)");
         if (!inputNaoEstaVazio())
             continue;
         if (!dicionarioNavios.ContainsKey(input))
@@ -383,11 +400,19 @@ void inicializaJogo(string[,] campo)
 #region Impressão do campo do jogo
 void imprimeMapa(string[,] campo)
 {
+    Console.WriteLine("|1||2||3||4||5||6||7||8||9||10|");
     Console.WriteLine("------------------------------");
     for (int i = 0; i < 10; i++)
     {
         for (int j = 0; j < 10; j++)
-            Console.Write($"|{campo[i, j]}|");
+        {
+            if (campo[i, j] != null)
+                Console.Write($"|{campo[i, j]}|");
+            else
+                Console.Write($"|M|");
+            if (j == 9)
+                Console.Write($"| {dicionarioPosicoes[i]}");
+        }
         Console.WriteLine("");
         Console.WriteLine("------------------------------");
     }
@@ -442,6 +467,7 @@ void validaInputTiro()
                 break;
         }
         inputValido = true;
+
     }
 }
 #endregion
@@ -454,7 +480,15 @@ bool registraTiro(string[,] campoDeBatalha, string[,] tabuleiroBarcos)
         if (tabuleiroBarcos[indexInputJogo, colunaInputJogo] == "B")
         {
             campoDeBatalha[indexInputJogo, colunaInputJogo] = "X";
-            qtdBarcosJogador1--;
+            switch (vezDoJogador1)
+            {
+                case true:
+                    qtdBarcosJogador2--;
+                    break;
+                case false:
+                    qtdBarcosJogador1--;
+                    break;
+            }
         }
         else
             campoDeBatalha[indexInputJogo, colunaInputJogo] = "A";
@@ -496,7 +530,6 @@ void jogo()
 {
     inicializaJogo(campoDeBatalhaJogador1);
     inicializaJogo(campoDeBatalhaJogador2);
-
     while (qtdBarcosJogador1 != 0 && qtdBarcosJogador2 != 0)
     {
         switch (vezDoJogador1)
@@ -516,7 +549,6 @@ void jogo()
     if (qtdBarcosJogador2 == 0)
         vitoria(campoDeBatalhaJogador2, nomeJogador1);
 }
-
 #endregion
 
 #region Main
