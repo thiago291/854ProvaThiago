@@ -46,7 +46,8 @@ int qtdMaxPS = 1;
 
 //váriáveis relacionadas aos tabuleiros
 string linhaInicial, linhaFinal, linhaInputJogo;
-int colunaInicial, colunaFinal, indexLinhaInicial, indexLinhaFinal, tamanhoBarco, colunaInputJogo, indexInputJogo;
+int colunaInicial, colunaFinal, indexLinhaInicial, indexLinhaFinal, 
+    tamanhoBarco, colunaInputJogo, indexInputJogo;
 
 //tamanho somado de todos os barcos no campo de batalha
 int qtdBarcosJogador1 = 0, qtdBarcosJogador2 = 0;
@@ -87,7 +88,8 @@ void verificaNumJogadores()
         {
             case 1:
                 jogoMultiPlayer = false;
-                Console.WriteLine("Trabalho em progresso. Por favor selecione a opção de 2 jogadores.");
+                Console.WriteLine("Versão contra CPU ainda não implementada. " +
+                    "Por favor selecione a opção de 2 jogadores.");
                 verificaNumJogadores();
                 break;
             case 2:
@@ -175,7 +177,7 @@ bool validaInput()
 
 #region Checagem da posição do barco no tabuleiro
 //checa se o valor do barco já está ocupado
-bool checaPosicaoBarco(string[,] tabuleiroBarcos)
+bool posicaoLivre(string[,] tabuleiroBarcos)
 {
     if (indexLinhaFinal == indexLinhaInicial)
     {
@@ -253,7 +255,7 @@ void validaInputBarco(string siglaBarco)
         switch (vezDoJogador1)
         {
             case true:
-                if (!checaPosicaoBarco(tabuleiroBarcosJogador1))
+                if (!posicaoLivre(tabuleiroBarcosJogador1))
                 {
                     Console.WriteLine("Uma ou mais posições do barco já estão ocupadas.");
                     continue;
@@ -262,7 +264,7 @@ void validaInputBarco(string siglaBarco)
                     posicionaBarco(tabuleiroBarcosJogador1);
                 break;
             case false:
-                if (!checaPosicaoBarco(tabuleiroBarcosJogador2))
+                if (!posicaoLivre(tabuleiroBarcosJogador2))
                 {
                     Console.WriteLine("Uma ou mais posições do barco já estão ocupadas.");
                     continue;
@@ -272,8 +274,8 @@ void validaInputBarco(string siglaBarco)
                 break;
         }
 
-
         //valida o input do usuário como válido, e continua o programa
+        Console.WriteLine("Barco inserido com sucesso.");
         inputValido = true;
     }
 }
@@ -298,7 +300,6 @@ void preencheTabuleiro()
         case false:
             Console.WriteLine($"É a vez do {nomeJogador2} posicionar os barcos!");
             break;
-
     }
 
     while (barcosRestantes != 0)
@@ -465,6 +466,34 @@ bool registraTiro(string[,] campoDeBatalha, string[,] tabuleiroBarcos)
 }
 #endregion
 
+#region Menu de batalha do jogo
+void menuBatalha(string jogadorAtivo, string jogadorOponente, int barcosOponente, string[,] campoOponente){
+    Console.Clear();
+    Console.WriteLine($"É a vez do jogador {jogadorAtivo}");
+    Console.WriteLine("");
+    Console.WriteLine($"O jogador {jogadorOponente} possui {barcosOponente} posição(ões) não atingida(s).");
+    Console.WriteLine("");
+    imprimeMapa(campoOponente);
+    Console.WriteLine("");
+    Console.WriteLine("Legenda:");
+    Console.WriteLine("M = mar (posição ainda não atingida)");
+    Console.WriteLine("A = posição vazia");
+    Console.WriteLine("X = posição de barco acertada");
+    Console.WriteLine("");
+    validaInputTiro();
+}
+#endregion
+
+#region Mensagem de vitória
+void vitoria(string[,] campoOponente, string nomeJogador)
+{
+    Console.Clear();
+    imprimeMapa(campoOponente);
+    Console.WriteLine("");
+    Console.WriteLine($"Parabéns {nomeJogador}. Você venceu!");
+}
+#endregion
+
 #region Jogo principal
 void jogo()
 {
@@ -475,53 +504,19 @@ void jogo()
         switch (vezDoJogador1)
         {
             case true:
-                Console.Clear();
-                Console.WriteLine($"É a vez do jogador {nomeJogador1}");
-                Console.WriteLine("");
-                Console.WriteLine($"O jogador {nomeJogador2} possui {qtdBarcosJogador2} posição(ões) não atingida(s).");
-                Console.WriteLine("");
-                imprimeMapa(campoDeBatalhaJogador2);
-                Console.WriteLine("");
-                Console.WriteLine("Legenda:");
-                Console.WriteLine("M = mar (posição ainda não atingida)");
-                Console.WriteLine("A = posição vazia");
-                Console.WriteLine("X = posição de barco acertada");
-                Console.WriteLine("");
-                validaInputTiro();
+                menuBatalha(nomeJogador1, nomeJogador2, qtdBarcosJogador2, campoDeBatalhaJogador2);
                 vezDoJogador1 = false;
                 break;
             case false:
-                Console.Clear();
-                Console.WriteLine($"É a vez do jogador {nomeJogador2}");
-                Console.WriteLine("");
-                Console.WriteLine($"O jogador {nomeJogador1} possui {qtdBarcosJogador1} posição(ões) não atingida(s).");
-                Console.WriteLine("");
-                imprimeMapa(campoDeBatalhaJogador1);
-                Console.WriteLine("");
-                Console.WriteLine("Legenda:");
-                Console.WriteLine("M = mar (posição ainda não atingida)");
-                Console.WriteLine("A = posição vazia");
-                Console.WriteLine("X = posição de barco acertada");
-                Console.WriteLine("");
-                validaInputTiro();
+                menuBatalha(nomeJogador2, nomeJogador1, qtdBarcosJogador1, campoDeBatalhaJogador1);
                 vezDoJogador1 = true;
                 break;
         }
     }
     if (qtdBarcosJogador1 == 0)
-    {
-        Console.Clear();
-        imprimeMapa(campoDeBatalhaJogador1);
-        Console.WriteLine("");
-        Console.WriteLine($"Parabéns {nomeJogador2}. Você venceu!");
-    }
+        vitoria(campoDeBatalhaJogador1, nomeJogador2);
     if (qtdBarcosJogador2 == 0)
-    {
-        Console.Clear();
-        imprimeMapa(campoDeBatalhaJogador2);
-        Console.WriteLine("");
-        Console.WriteLine($"Parabéns {nomeJogador1}. Você venceu!");
-    }
+        vitoria(campoDeBatalhaJogador2, nomeJogador1);
 }
 
 #endregion
