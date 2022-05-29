@@ -1,5 +1,5 @@
 ﻿//Nome: Thiago Conceição da Silva Costa
-//versão 1.1
+//versão 1.2
 
 #region Inicialização de variáveis
 //using Regex
@@ -46,7 +46,7 @@ int qtdMaxPS = 1;
 
 //váriáveis relacionadas aos tabuleiros
 string linhaInicial, linhaFinal, linhaInputJogo;
-int colunaInicial, colunaFinal, indexLinhaInicial, indexLinhaFinal, 
+int colunaInicial, colunaFinal, indexLinhaInicial, indexLinhaFinal,
     tamanhoBarco, colunaInputJogo, indexInputJogo;
 
 //tamanho somado de todos os barcos no campo de batalha
@@ -125,7 +125,7 @@ void posicionaBarco(string[,] tabuleiroBarcos)
 
 #region verificações gerais
 //verifica se o input do usuário não está vazio
-bool recebeInput()
+bool inputNaoEstaVazio()
 {
     input = Console.ReadLine();
     if (string.IsNullOrEmpty(input))
@@ -164,10 +164,12 @@ bool validaInput()
             if (!dicionarioPosicoes.ContainsValue(inputSeparado[i]))
                 return false;
         }
-        else
+        else if (i % 2 != 0)
         {
             //testa se o valor é um inteiro, e se está entre 1 e 10
-            if (!int.TryParse(inputSeparado[i], out numTeste) && (numTeste < 1 || numTeste > 10))
+            if (!int.TryParse(inputSeparado[i], out numTeste))
+                return false;
+            if ((numTeste < 1 || numTeste > 10))
                 return false;
         }
     }
@@ -213,11 +215,9 @@ void validaInputBarco(string siglaBarco)
         Console.WriteLine("Qual a sua posição?");
         Console.WriteLine("Exemplo de formato válido: G1H1");
 
-        //verifica se o input do usuário não está vazio
-        if (!recebeInput())
+        if (!inputNaoEstaVazio())
             continue;
 
-        //separa o input
         separaInput();
 
         //checa se o formato do input está correto, e armazena seus valores se estiverem corretos
@@ -275,8 +275,10 @@ void validaInputBarco(string siglaBarco)
         }
 
         //valida o input do usuário como válido, e continua o programa
-        Console.WriteLine("Barco inserido com sucesso.");
         inputValido = true;
+        Console.Clear();
+        Console.WriteLine("Barco inserido com sucesso.");
+        Console.WriteLine("");
     }
 }
 #endregion
@@ -295,22 +297,28 @@ void preencheTabuleiro()
     switch (vezDoJogador1)
     {
         case true:
-            Console.WriteLine($"É a vez do {nomeJogador1} posicionar os barcos!");
+            Console.WriteLine($"É a vez do jogador {nomeJogador1} posicionar os barcos!");
+            Console.WriteLine("");
             break;
         case false:
-            Console.WriteLine($"É a vez do {nomeJogador2} posicionar os barcos!");
+            Console.WriteLine($"É a vez do jogador {nomeJogador2} posicionar os barcos!");
+            Console.WriteLine("");
             break;
     }
 
     while (barcosRestantes != 0)
     {
-        Console.WriteLine("Qual o tipo de embarcação?");
-        if (!recebeInput())
+        Console.WriteLine("Selecione o tipo de embarcação.");
+        Console.WriteLine("");
+        Console.WriteLine("Barcos disponíveis:");
+        Console.WriteLine($"SB = Submarino (2 de tamanho; {qtdSB} disponíveis.");
+        Console.WriteLine($"DS = Destroyers (3 de tamanho; {qtdDS} disponíveis.");
+        Console.WriteLine($"NT = Navio-Tanque (4 de tamanho; {qtdNT} disponíveis.");
+        Console.WriteLine($"PS = Porta-Aviões (5 de tamanho; {qtdPS} disponíveis.");
+        if (!inputNaoEstaVazio())
             continue;
         if (!dicionarioNavios.ContainsKey(input))
-        {
             Console.WriteLine("Digite uma embarcação válida");
-        }
         else
         {
             switch (input)
@@ -367,43 +375,36 @@ void inicializaJogo(string[,] campo)
     for (int i = 0; i < 10; i++)
     {
         for (int j = 0; j < 10; j++)
-        {
             campo[i, j] = "M";
-        }
     }
-
 }
 #endregion
 
 #region Impressão do campo do jogo
 void imprimeMapa(string[,] campo)
 {
+    Console.WriteLine("------------------------------");
     for (int i = 0; i < 10; i++)
     {
         for (int j = 0; j < 10; j++)
-        {
-            Console.Write(campo[i, j]);
-        }
-        Console.WriteLine();
+            Console.Write($"|{campo[i, j]}|");
+        Console.WriteLine("");
+        Console.WriteLine("------------------------------");
     }
-
 }
 #endregion
 
 #region Validação do input do tiro do usuário
 void validaInputTiro()
 {
-    //variável local do objeto
     bool inputValido = false;
-
-    //loop de validação do input do usuário (o loop só é quebrado quando o input é válido)
     while (inputValido == false)
     {
         Console.WriteLine("Tente acertar uma posição.");
-        Console.WriteLine("Exemplo de formato válido: D4, onde 'D' é a linha e '4' é a coluna desejada");
+        Console.WriteLine("Exemplo de formato válido: D2, onde 'D' é a linha e '2' é a coluna desejada");
 
         //verifica se o input do usuário não está vazio
-        if (!recebeInput())
+        if (!inputNaoEstaVazio())
             continue;
 
         //separa o input
@@ -418,7 +419,7 @@ void validaInputTiro()
         }
         else
         {
-            Console.WriteLine("Digite um formato válido.");
+            Console.WriteLine("Digite uma posição válida.");
             continue;
         }
 
@@ -440,7 +441,6 @@ void validaInputTiro()
                 }
                 break;
         }
-        //valida o input do usuário como válido, e continua o programa
         inputValido = true;
     }
 }
@@ -449,7 +449,6 @@ void validaInputTiro()
 #region Registro do tiro do usuário
 bool registraTiro(string[,] campoDeBatalha, string[,] tabuleiroBarcos)
 {
-
     if (campoDeBatalha[indexInputJogo, colunaInputJogo] == "M")
     {
         if (tabuleiroBarcos[indexInputJogo, colunaInputJogo] == "B")
@@ -467,14 +466,12 @@ bool registraTiro(string[,] campoDeBatalha, string[,] tabuleiroBarcos)
 #endregion
 
 #region Menu de batalha do jogo
-void menuBatalha(string jogadorAtivo, string jogadorOponente, int barcosOponente, string[,] campoOponente){
+void menuBatalha(string jogadorAtivo, string jogadorOponente, int barcosOponente, string[,] campoOponente)
+{
     Console.Clear();
-    Console.WriteLine($"É a vez do jogador {jogadorAtivo}");
-    Console.WriteLine("");
-    Console.WriteLine($"O jogador {jogadorOponente} possui {barcosOponente} posição(ões) não atingida(s).");
-    Console.WriteLine("");
+    Console.WriteLine($"É a vez do jogador {jogadorAtivo}. " +
+        $"O jogador {jogadorOponente} possui {barcosOponente} posição(ões) não atingida(s).");
     imprimeMapa(campoOponente);
-    Console.WriteLine("");
     Console.WriteLine("Legenda:");
     Console.WriteLine("M = mar (posição ainda não atingida)");
     Console.WriteLine("A = posição vazia");
@@ -499,6 +496,7 @@ void jogo()
 {
     inicializaJogo(campoDeBatalhaJogador1);
     inicializaJogo(campoDeBatalhaJogador2);
+
     while (qtdBarcosJogador1 != 0 && qtdBarcosJogador2 != 0)
     {
         switch (vezDoJogador1)
