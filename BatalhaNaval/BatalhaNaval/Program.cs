@@ -401,7 +401,7 @@ void inicializaJogo(string[,] campo)
 void imprimeMapa(string[,] campo)
 {
     Console.WriteLine("|1||2||3||4||5||6||7||8||9||10|");
-    Console.WriteLine("------------------------------");
+    Console.WriteLine("----------------------------------");
     for (int i = 0; i < 10; i++)
     {
         for (int j = 0; j < 10; j++)
@@ -414,7 +414,7 @@ void imprimeMapa(string[,] campo)
                 Console.Write($"| {dicionarioPosicoes[i]}");
         }
         Console.WriteLine("");
-        Console.WriteLine("------------------------------");
+        Console.WriteLine("----------------------------------");
     }
 }
 #endregion
