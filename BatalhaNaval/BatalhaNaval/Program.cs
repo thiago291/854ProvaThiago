@@ -1,5 +1,5 @@
 ﻿//Nome: Thiago Conceição da Silva Costa
-//versão 1.2.1
+//versão 1.2.2
 
 #region Inicialização de variáveis
 //using Regex
@@ -146,12 +146,14 @@ void separaInput()
 }
 
 //verificação se o input possui o(s) valor(es) de linha e coluna correto(s)
-bool validaInput()
+bool validaInput(char tipo)
 {
     int numTeste = 0;
 
     //verifica se o tamanho dos inputs da string está de acordo (2 para input do tiro, 4 para o input do barco)
-    if (inputSeparado.Count != 2 && inputSeparado.Count != 4)
+    if (inputSeparado.Count != 2 && tipo == 'T')
+        return false;
+    if (tipo == 'B' && inputSeparado.Count != 4)
         return false;
 
     //quando [i] é par, o valor é uma string, quando é ímpar, é uma int
@@ -224,7 +226,7 @@ void validaInputBarco(string siglaBarco)
         Console.WriteLine("Exemplo de formato válido: G1H1");
         Console.WriteLine("Legenda");
         Console.WriteLine("B = barco (posição já ocupada)");
-        Console.WriteLine("M = mar (posição vazia");
+        Console.WriteLine("M = mar (posição vazia)");
 
         if (!inputNaoEstaVazio())
             continue;
@@ -232,7 +234,7 @@ void validaInputBarco(string siglaBarco)
         separaInput();
 
         //checa se o formato do input está correto, e armazena seus valores se estiverem corretos
-        if (validaInput())
+        if (validaInput('B'))
         {
             colunaInicial = int.Parse(inputSeparado[1]) - 1;
             colunaFinal = int.Parse(inputSeparado[3]) - 1;
@@ -436,7 +438,7 @@ void validaInputTiro()
         separaInput();
 
         //checa se o formato do input está correto, e armazena seus valores se estiverem corretos
-        if (validaInput())
+        if (validaInput('T'))
         {
             linhaInputJogo = inputSeparado[0];
             indexInputJogo = dicionarioPosicoes.First(x => x.Value == linhaInputJogo).Key;
@@ -510,17 +512,16 @@ void menuBatalha(string jogadorAtivo, string jogadorOponente, int barcosOponente
     Console.WriteLine("M = mar (posição ainda não atingida)");
     Console.WriteLine("A = posição vazia");
     Console.WriteLine("X = posição de barco acertada");
-    Console.WriteLine("");
     validaInputTiro();
 }
 #endregion
 
 #region Mensagem de vitória
-void vitoria(string[,] campoOponente, string nomeJogador)
+void vitoria(string[,] campoOponente, string nomeJogador, string nomeOponente)
 {
     Console.Clear();
     imprimeMapa(campoOponente);
-    Console.WriteLine("");
+    Console.WriteLine($"Todos os barcos do jogador {nomeOponente} foram afundados.");
     Console.WriteLine($"Parabéns {nomeJogador}. Você venceu!");
 }
 #endregion
@@ -545,9 +546,9 @@ void jogo()
         }
     }
     if (qtdBarcosJogador1 == 0)
-        vitoria(campoDeBatalhaJogador1, nomeJogador2);
+        vitoria(campoDeBatalhaJogador1, nomeJogador2, nomeJogador1);
     if (qtdBarcosJogador2 == 0)
-        vitoria(campoDeBatalhaJogador2, nomeJogador1);
+        vitoria(campoDeBatalhaJogador2, nomeJogador1, nomeJogador2);
 }
 #endregion
 
