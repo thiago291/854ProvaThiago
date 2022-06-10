@@ -1,0 +1,15 @@
+H:\github\854ProvaThiago\PetShop\PetShop\bin\Debug\net6.0\PetShop.exe
+H:\github\854ProvaThiago\PetShop\PetShop\bin\Debug\net6.0\PetShop.deps.json
+H:\github\854ProvaThiago\PetShop\PetShop\bin\Debug\net6.0\PetShop.runtimeconfig.json
+H:\github\854ProvaThiago\PetShop\PetShop\bin\Debug\net6.0\PetShop.dll
+H:\github\854ProvaThiago\PetShop\PetShop\bin\Debug\net6.0\PetShop.pdb
+H:\github\854ProvaThiago\PetShop\PetShop\obj\Debug\net6.0\PetShop.csproj.AssemblyReference.cache
+H:\github\854ProvaThiago\PetShop\PetShop\obj\Debug\net6.0\PetShop.GeneratedMSBuildEditorConfig.editorconfig
+H:\github\854ProvaThiago\PetShop\PetShop\obj\Debug\net6.0\PetShop.AssemblyInfoInputs.cache
+H:\github\854ProvaThiago\PetShop\PetShop\obj\Debug\net6.0\PetShop.AssemblyInfo.cs
+H:\github\854ProvaThiago\PetShop\PetShop\obj\Debug\net6.0\PetShop.csproj.CoreCompileInputs.cache
+H:\github\854ProvaThiago\PetShop\PetShop\obj\Debug\net6.0\PetShop.dll
+H:\github\854ProvaThiago\PetShop\PetShop\obj\Debug\net6.0\refint\PetShop.dll
+H:\github\854ProvaThiago\PetShop\PetShop\obj\Debug\net6.0\PetShop.pdb
+H:\github\854ProvaThiago\PetShop\PetShop\obj\Debug\net6.0\PetShop.genruntimeconfig.cache
+H:\github\854ProvaThiago\PetShop\PetShop\obj\Debug\net6.0\ref\PetShop.dll
