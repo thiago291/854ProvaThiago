@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PetShop
+namespace Aula7_LetsCode
 {
-    public class CarteiraVacinacao
+    public abstract class Forma
     {
+        public abstract string CalcularArea();
+
+
     }
 }

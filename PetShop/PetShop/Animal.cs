@@ -4,24 +4,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PetShop.Enums;
+using PetShop.Classes;
 
-public class Animal
+public class Animal : DadosCadastro
 {
-    public Guid Codigo { get; private set; }
+    
     public string Nome { get; set; }
     public Especie Especie { get; set; }
-    public string Raca { get; set; }
+    public string _raca;
+
+    public string Raca { 
+        get => _raca;
+        private set
+        {
+            if (_raca.Contains(value)) //alterar para classe _racasAnimal
+                _raca = value;
+        };
+    }
     public string Cor { get; set; }
     public Porte Porte { get; set; }
-    public decimal Peso { get; set; }
-    //public int Idade { get { return DateTime.Now.Year - Nascimento.Year; } } // calculo só com ano
-    public int Idade { get { return IdadeCompleta(); } } //calculo só com meses e ano
+    private decimal _peso;
+    public decimal Peso { 
+        get => _peso;
+        set
+        {
+            _peso = value;
+        } 
+    }
+    public int Idade { get { return IdadeCompleta(); } }
     public DateTime Nascimento { get; set; }
-    private List<string> DoencasAlergias { get; set; } = new(); //analisar posteriormente
+    public List<string> DoencasAlergias { get; private set; } = new();
     public bool Agressivo { get; set; }
     public char Sexo { get; set; }
     public bool Castrado { get; set; }
-    private DateTime DataCadastrado { get { return DateTime.Now; } }
 
     private int IdadeCompleta()
     {
@@ -44,16 +59,6 @@ public class Animal
                 return (DateTime.Now.Year - Nascimento.Year) - 1;
             }
         }
-    }
-
-    public void SetarCodigo(Guid codigo)
-    {
-        this.Codigo = codigo;
-    }
-
-    public DateTime ObterDataCadastro()
-    {
-        return DataCadastrado;
     }
 
     public List<string> ObterNecessidadesEespeciais()

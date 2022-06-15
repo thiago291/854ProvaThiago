@@ -1,0 +1,15 @@
+H:\github\854ProvaThiago\ExerciciosAvulsos\Aula7-LetsCode\Aula7-LetsCode\bin\Debug\net6.0\Aula7_LetsCode.exe
+H:\github\854ProvaThiago\ExerciciosAvulsos\Aula7-LetsCode\Aula7-LetsCode\bin\Debug\net6.0\Aula7_LetsCode.deps.json
+H:\github\854ProvaThiago\ExerciciosAvulsos\Aula7-LetsCode\Aula7-LetsCode\bin\Debug\net6.0\Aula7_LetsCode.runtimeconfig.json
+H:\github\854ProvaThiago\ExerciciosAvulsos\Aula7-LetsCode\Aula7-LetsCode\bin\Debug\net6.0\Aula7_LetsCode.dll
+H:\github\854ProvaThiago\ExerciciosAvulsos\Aula7-LetsCode\Aula7-LetsCode\bin\Debug\net6.0\Aula7_LetsCode.pdb
+H:\github\854ProvaThiago\ExerciciosAvulsos\Aula7-LetsCode\Aula7-LetsCode\obj\Debug\net6.0\Aula7_LetsCode.csproj.AssemblyReference.cache
+H:\github\854ProvaThiago\ExerciciosAvulsos\Aula7-LetsCode\Aula7-LetsCode\obj\Debug\net6.0\Aula7_LetsCode.GeneratedMSBuildEditorConfig.editorconfig
+H:\github\854ProvaThiago\ExerciciosAvulsos\Aula7-LetsCode\Aula7-LetsCode\obj\Debug\net6.0\Aula7_LetsCode.AssemblyInfoInputs.cache
+H:\github\854ProvaThiago\ExerciciosAvulsos\Aula7-LetsCode\Aula7-LetsCode\obj\Debug\net6.0\Aula7_LetsCode.AssemblyInfo.cs
+H:\github\854ProvaThiago\ExerciciosAvulsos\Aula7-LetsCode\Aula7-LetsCode\obj\Debug\net6.0\Aula7_LetsCode.csproj.CoreCompileInputs.cache
+H:\github\854ProvaThiago\ExerciciosAvulsos\Aula7-LetsCode\Aula7-LetsCode\obj\Debug\net6.0\Aula7_LetsCode.dll
+H:\github\854ProvaThiago\ExerciciosAvulsos\Aula7-LetsCode\Aula7-LetsCode\obj\Debug\net6.0\refint\Aula7_LetsCode.dll
+H:\github\854ProvaThiago\ExerciciosAvulsos\Aula7-LetsCode\Aula7-LetsCode\obj\Debug\net6.0\Aula7_LetsCode.pdb
+H:\github\854ProvaThiago\ExerciciosAvulsos\Aula7-LetsCode\Aula7-LetsCode\obj\Debug\net6.0\Aula7_LetsCode.genruntimeconfig.cache
+H:\github\854ProvaThiago\ExerciciosAvulsos\Aula7-LetsCode\Aula7-LetsCode\obj\Debug\net6.0\ref\Aula7_LetsCode.dll

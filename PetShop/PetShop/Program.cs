@@ -68,7 +68,7 @@ while (pet.Sexo != 'F' && pet.Sexo != 'M' || char.IsWhiteSpace(pet.Sexo))
 pet.Castrado = true;
 
 pet.ImprimirAnimal();*/
-
+/*
 string input;
 decimal inputConv;
 Caixa caixaDoDia = new Caixa();
@@ -98,3 +98,10 @@ while (!decimal.TryParse(input, System.Globalization.NumberStyles.AllowDecimalPo
 caixaDoDia.AdicionaValorPago(inputConv);
 
 caixaDoDia.CalcularTroco();
+*/
+
+Animal pet = new Animal();
+pet.Nome = "Charlie";
+Console.WriteLine(pet.Nome);
+Console.WriteLine(pet.DataCadastrado);
+Console.WriteLine(pet.Codigo);
