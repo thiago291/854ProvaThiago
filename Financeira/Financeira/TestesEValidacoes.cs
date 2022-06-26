@@ -35,7 +35,7 @@ namespace Financeira
                 return true;
         }
 
-        public static decimal testeCPFouCNPJouIE(string tipo)
+        public static string testeCPFouCNPJouIE(string tipo)
         {
             bool inputValido = false;
             string inputLimpo = "";
@@ -90,7 +90,7 @@ namespace Financeira
                 }
                 inputValido = true;
             }
-            return Convert.ToDecimal(inputLimpo);
+            return inputLimpo;
         }
 
         public static string testeContratante()
@@ -107,6 +107,7 @@ namespace Financeira
             while (!inputValido)
             {
                 Console.WriteLine("Digite o valor do contrato:");
+                Console.Write("R$ ");
                 inputNaoNulo();
                 if (!decimal.TryParse(input, out inputValor))
                     Console.WriteLine("Por favor, digite um valor válido.");

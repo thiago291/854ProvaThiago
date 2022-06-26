@@ -8,10 +8,10 @@ namespace Financeira
 {
     public class ContratoPessoaJuridica : Contrato
     {
-        private decimal CNPJ { get; set; }
-        private decimal InscricaoEstadual { get; set; }
+        private string CNPJ { get; set; }
+        private string InscricaoEstadual { get; set; }
 
-        public decimal cnpj, inscricaoEstadual;
+        public string cnpj, inscricaoEstadual;
 
         public override void cadastro()
         {

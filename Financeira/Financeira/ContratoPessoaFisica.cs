@@ -10,9 +10,9 @@ namespace Financeira
     {
         private int Idade { get; set; }
         private DateTime DataDeNascimento { get; set; }
-        private decimal CPF { get; set; }
+        private string CPF { get; set; }
 
-        public decimal cpf;
+        public string cpf;
         public DateTime dataDeNascimento;
         public int idade;
 
