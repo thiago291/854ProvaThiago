@@ -70,12 +70,10 @@ Escolha sua opção de cadastro:
             switch (tipo)
             {
                 case "PF":
-                    Console.WriteLine(tipo);
                     cadPF.cadastro();
                     cadPF.ExibirInfo();
                     break;
                 case "PJ":
-                    Console.WriteLine(tipo);
                     cadPJ.cadastro();
                     cadPJ.ExibirInfo();
                     break;
