@@ -1,0 +1,15 @@
+H:\github\854ProvaThiago\Financeira\Financeira\bin\Debug\net6.0\Financeira.exe
+H:\github\854ProvaThiago\Financeira\Financeira\bin\Debug\net6.0\Financeira.deps.json
+H:\github\854ProvaThiago\Financeira\Financeira\bin\Debug\net6.0\Financeira.runtimeconfig.json
+H:\github\854ProvaThiago\Financeira\Financeira\bin\Debug\net6.0\Financeira.dll
+H:\github\854ProvaThiago\Financeira\Financeira\bin\Debug\net6.0\Financeira.pdb
+H:\github\854ProvaThiago\Financeira\Financeira\obj\Debug\net6.0\Financeira.csproj.AssemblyReference.cache
+H:\github\854ProvaThiago\Financeira\Financeira\obj\Debug\net6.0\Financeira.GeneratedMSBuildEditorConfig.editorconfig
+H:\github\854ProvaThiago\Financeira\Financeira\obj\Debug\net6.0\Financeira.AssemblyInfoInputs.cache
+H:\github\854ProvaThiago\Financeira\Financeira\obj\Debug\net6.0\Financeira.AssemblyInfo.cs
+H:\github\854ProvaThiago\Financeira\Financeira\obj\Debug\net6.0\Financeira.csproj.CoreCompileInputs.cache
+H:\github\854ProvaThiago\Financeira\Financeira\obj\Debug\net6.0\Financeira.dll
+H:\github\854ProvaThiago\Financeira\Financeira\obj\Debug\net6.0\refint\Financeira.dll
+H:\github\854ProvaThiago\Financeira\Financeira\obj\Debug\net6.0\Financeira.pdb
+H:\github\854ProvaThiago\Financeira\Financeira\obj\Debug\net6.0\Financeira.genruntimeconfig.cache
+H:\github\854ProvaThiago\Financeira\Financeira\obj\Debug\net6.0\ref\Financeira.dll
