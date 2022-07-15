@@ -35,13 +35,13 @@ namespace Financeira
             prazo = TestesEValidacoes.testePrazo();
         }
 
-        public virtual void calcularPrestacao() => valorPrestacao = valor / prazo;
+        public virtual void CalcularPrestacao() => valorPrestacao = valor / prazo;
 
         public virtual void ExibirInfo()
         {
             Console.WriteLine(@$"Valor do contrato: {valor}
 Prazo do contrato: {prazo}
-Valor da prestação: R$ {valorPrestacao.ToString("0.00")}");
+Valor da prestação: R$ {valorPrestacao:0.00}");
         }
     }
 }

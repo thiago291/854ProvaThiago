@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32407.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculadoraIR", "CalculadoraIR\CalculadoraIR.csproj", "{B29BDF9B-94E2-4A3D-9D18-90FBBDCABDEC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B29BDF9B-94E2-4A3D-9D18-90FBBDCABDEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B29BDF9B-94E2-4A3D-9D18-90FBBDCABDEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B29BDF9B-94E2-4A3D-9D18-90FBBDCABDEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B29BDF9B-94E2-4A3D-9D18-90FBBDCABDEC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {55EA3A6E-2B64-43AD-BE87-7616B164C561}
+	EndGlobalSection
+EndGlobal

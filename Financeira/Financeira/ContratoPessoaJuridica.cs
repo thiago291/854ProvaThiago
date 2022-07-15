@@ -19,7 +19,7 @@ namespace Financeira
             cnpj = TestesEValidacoes.testeCPFouCNPJouIE("PJ");
             inscricaoEstadual = TestesEValidacoes.testeCPFouCNPJouIE("IE");
             base.cadastro();
-            calcularPrestacao();
+            CalcularPrestacao();
         }
 
         public ContratoPessoaJuridica()
@@ -28,9 +28,9 @@ namespace Financeira
             this.InscricaoEstadual = inscricaoEstadual;
         }
 
-        public override void calcularPrestacao()
+        public override void CalcularPrestacao()
         {
-            base.calcularPrestacao();
+            base.CalcularPrestacao();
             valorPrestacao += 3;
         }
 

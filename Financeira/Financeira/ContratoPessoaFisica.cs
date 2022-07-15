@@ -29,12 +29,12 @@ namespace Financeira
             base.cadastro();
             dataDeNascimento = TestesEValidacoes.testeData();
             idade = TestesEValidacoes.calculaIdade(dataDeNascimento);
-            calcularPrestacao();
+            CalcularPrestacao();
         }
 
-        public override void calcularPrestacao()
+        public override void CalcularPrestacao()
         {
-            base.calcularPrestacao();
+            base.CalcularPrestacao();
             if (idade <= 30)
                 valorPrestacao += 1;
             else if (idade <= 40)
