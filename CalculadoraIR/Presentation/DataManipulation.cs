@@ -2,13 +2,13 @@
 
 namespace CalculadoraIR.Presentation
 {
-    public class DataManipulation : Data
+    public class DataManipulation : IData
     {
-        public override bool InputNulo(string input) {
+        public bool InputNulo(string input) {
             return string.IsNullOrWhiteSpace(input);
         }
 
-        public override bool InputValido(string input)
+        public bool InputValido(string input)
         {
             if (double.TryParse(input, out double _))
                 return true;
