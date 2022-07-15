@@ -7,6 +7,7 @@ namespace CalculadoraIR.Presentation
     {
         private readonly ITaxCalculator _taxCalculator;
         private readonly IData _data;
+        private double valorImposto;
         public Menu( ITaxCalculator taxCalculator, IData data)
         {
             _taxCalculator = taxCalculator;
@@ -25,7 +26,6 @@ namespace CalculadoraIR.Presentation
             {
                 Console.Write(MenuMessages.msgInput);
                 var input = Console.ReadLine();
-                double valorImposto;
                 if (_data.InputNulo(input))
                     Console.WriteLine(MenuMessages.msgNulo);
                 else if (_data.InputValido(input))
