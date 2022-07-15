@@ -6,12 +6,9 @@ namespace CalculadoraIR.Presentation
     public class Menu : IScreen
     {
         private readonly ITaxCalculator _taxCalculator;
-        //private readonly MenuMessages _menuMessages;
         private readonly IData _data;
-        //MenuMessages menuMessages
         public Menu( ITaxCalculator taxCalculator, IData data)
         {
-            //_menuMessages = menuMessages;
             _taxCalculator = taxCalculator;
             _data = data;
         }
@@ -26,7 +23,7 @@ namespace CalculadoraIR.Presentation
             bool valid = false;
             while (!valid)
             {
-                Console.WriteLine(MenuMessages.msgInput);
+                Console.Write(MenuMessages.msgInput);
                 var input = Console.ReadLine();
                 double valorImposto;
                 if (_data.InputNulo(input))
