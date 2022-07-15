@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CalculadoraIR.Domain
 {
-    public class Data
-    {
-        public double aliquota;
-        public double taxa;
+    public abstract class Data
+    { 
+        public abstract bool InputNulo(string input);
+        public abstract bool InputValido(string input);
     }
 }

@@ -8,9 +8,9 @@ namespace CalculadoraIR.Presentation
 {
     public class Screen : IScreen
     {
-        public void Write(string message)
+        public void MainMenu()
         {
-            Console.WriteLine(message);
+            //Console.WriteLine(message);
         }
     }
 }

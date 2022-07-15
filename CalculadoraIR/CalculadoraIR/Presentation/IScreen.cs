@@ -8,6 +8,6 @@ namespace CalculadoraIR.Presentation
 {
     public interface IScreen
     {
-        void Write(string message);
+        void MainMenu();
     }
 }
