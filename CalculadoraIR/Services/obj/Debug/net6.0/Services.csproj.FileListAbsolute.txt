@@ -1,0 +1,12 @@
+H:\github\854ProvaThiago\CalculadoraIR\Services\bin\Debug\net6.0\Services.deps.json
+H:\github\854ProvaThiago\CalculadoraIR\Services\bin\Debug\net6.0\Services.dll
+H:\github\854ProvaThiago\CalculadoraIR\Services\bin\Debug\net6.0\Services.pdb
+H:\github\854ProvaThiago\CalculadoraIR\Services\obj\Debug\net6.0\Services.csproj.AssemblyReference.cache
+H:\github\854ProvaThiago\CalculadoraIR\Services\obj\Debug\net6.0\Services.GeneratedMSBuildEditorConfig.editorconfig
+H:\github\854ProvaThiago\CalculadoraIR\Services\obj\Debug\net6.0\Services.AssemblyInfoInputs.cache
+H:\github\854ProvaThiago\CalculadoraIR\Services\obj\Debug\net6.0\Services.AssemblyInfo.cs
+H:\github\854ProvaThiago\CalculadoraIR\Services\obj\Debug\net6.0\Services.csproj.CoreCompileInputs.cache
+H:\github\854ProvaThiago\CalculadoraIR\Services\obj\Debug\net6.0\Services.dll
+H:\github\854ProvaThiago\CalculadoraIR\Services\obj\Debug\net6.0\refint\Services.dll
+H:\github\854ProvaThiago\CalculadoraIR\Services\obj\Debug\net6.0\Services.pdb
+H:\github\854ProvaThiago\CalculadoraIR\Services\obj\Debug\net6.0\ref\Services.dll

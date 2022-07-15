@@ -3,13 +3,10 @@ H:\github\854ProvaThiago\CalculadoraIR\CalculadoraIR\obj\Debug\net6.0\Calculador
 H:\github\854ProvaThiago\CalculadoraIR\CalculadoraIR\obj\Debug\net6.0\CalculadoraIR.AssemblyInfoInputs.cache
 H:\github\854ProvaThiago\CalculadoraIR\CalculadoraIR\obj\Debug\net6.0\CalculadoraIR.AssemblyInfo.cs
 H:\github\854ProvaThiago\CalculadoraIR\CalculadoraIR\obj\Debug\net6.0\CalculadoraIR.csproj.CoreCompileInputs.cache
-H:\github\854ProvaThiago\CalculadoraIR\CalculadoraIR\bin\Debug\net6.0\CalculadoraIR.exe
 H:\github\854ProvaThiago\CalculadoraIR\CalculadoraIR\bin\Debug\net6.0\CalculadoraIR.deps.json
-H:\github\854ProvaThiago\CalculadoraIR\CalculadoraIR\bin\Debug\net6.0\CalculadoraIR.runtimeconfig.json
 H:\github\854ProvaThiago\CalculadoraIR\CalculadoraIR\bin\Debug\net6.0\CalculadoraIR.dll
 H:\github\854ProvaThiago\CalculadoraIR\CalculadoraIR\bin\Debug\net6.0\CalculadoraIR.pdb
 H:\github\854ProvaThiago\CalculadoraIR\CalculadoraIR\obj\Debug\net6.0\CalculadoraIR.dll
 H:\github\854ProvaThiago\CalculadoraIR\CalculadoraIR\obj\Debug\net6.0\refint\CalculadoraIR.dll
 H:\github\854ProvaThiago\CalculadoraIR\CalculadoraIR\obj\Debug\net6.0\CalculadoraIR.pdb
-H:\github\854ProvaThiago\CalculadoraIR\CalculadoraIR\obj\Debug\net6.0\CalculadoraIR.genruntimeconfig.cache
 H:\github\854ProvaThiago\CalculadoraIR\CalculadoraIR\obj\Debug\net6.0\ref\CalculadoraIR.dll

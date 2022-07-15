@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "yQH+4D0s+9G+z0zt6zlxnvqoH65VG9m+1BqP4f2qiOjBkLmGo5+UYZ4puR/78OeJwl+tiURmc2FIDGEUnFN8QA==",
+  "dgSpecHash": "6qTGA5KsSPY5qRsNelZoO3Xu1KmwN1ZqvB05nVYFGcbpatcshS0AQKfNMp/uHwLB/2R1pCILEDEQKXsjsrHDXQ==",
   "success": true,
   "projectFilePath": "H:\\github\\854ProvaThiago\\CalculadoraIR\\CalculadoraIR\\CalculadoraIR.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\thiag\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
+    "C:\\Users\\thiag\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\thiag\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
