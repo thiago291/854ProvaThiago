@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "H:\\github\\testes-lets\\TP_Aula01\\TP_Aula01\\TP_Aula01.csproj",
+      "projectUniqueName": "H:\\github\\854ProvaThiago\\ExerciciosAvulsos\\TP_Aula01\\TP_Aula01\\TP_Aula01.csproj",
       "projectName": "TP_Aula01",
-      "projectPath": "H:\\github\\testes-lets\\TP_Aula01\\TP_Aula01\\TP_Aula01.csproj",
+      "projectPath": "H:\\github\\854ProvaThiago\\ExerciciosAvulsos\\TP_Aula01\\TP_Aula01\\TP_Aula01.csproj",
       "packagesPath": "C:\\Users\\thiag\\.nuget\\packages\\",
-      "outputPath": "H:\\github\\testes-lets\\TP_Aula01\\TP_Aula01\\obj\\",
+      "outputPath": "H:\\github\\854ProvaThiago\\ExerciciosAvulsos\\TP_Aula01\\TP_Aula01\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
