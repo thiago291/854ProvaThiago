@@ -21,14 +21,16 @@ namespace Calculadoras
         {
             this.Hide();
             FormIMC formIMC = new();
-            formIMC.Show();
+            formIMC.ShowDialog();
+            this.Show();
         }
 
         private void btnCalc_Click(object sender, EventArgs e)
         {
             this.Hide();
             FormCalc formCalc = new();
-            formCalc.Show();
+            formCalc.ShowDialog();
+            this.Show();
         }
     }
 }

@@ -53,9 +53,6 @@ namespace Calculadoras
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FormMenu f = new();
-            f.Show();
             this.Close();
         }
     }
