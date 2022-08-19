@@ -266,7 +266,6 @@
             this.MaximizeBox = false;
             this.Name = "FormCalc";
             this.Text = "Calculadora numérica";
-            this.Load += new System.EventHandler(this.FormCalc_Load);
             this.ResumeLayout(false);
 
         }

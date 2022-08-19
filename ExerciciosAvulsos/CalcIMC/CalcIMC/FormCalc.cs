@@ -18,11 +18,6 @@ namespace Calculadoras
             InitializeComponent();
         }
 
-        private void FormCalc_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn1_Click(object sender, EventArgs e)
         {
             if (lblTela.Text.Length == 1 && lblTela.Text == "0")
