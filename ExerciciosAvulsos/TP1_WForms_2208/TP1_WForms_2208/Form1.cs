@@ -58,7 +58,7 @@ namespace TP1_WForms_2208
             timer1.Start();
             label1.Visible = true;
             label2.Visible = true;
-            label2.Text = "Tempo: 0 segundos";
+            label2.Text = "Tempo: 0 segundo(s)";
 
             label1.Text = @$"Iniciando os cálculos. 
 Aguarde o final do processamento...";
@@ -76,7 +76,7 @@ Aguarde o final do processamento...";
         private void timer1_Tick(object sender, EventArgs e)
         {
             cronometro = cronometro.AddSeconds(1);
-            label2.Text = $"Tempo: {cronometro.Second} segundos";
+            label2.Text = $"Tempo: {cronometro.Second} segundo(s)";
         }
 
         private void Form1_Load(object sender, EventArgs e)
