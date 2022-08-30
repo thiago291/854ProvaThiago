@@ -10,44 +10,89 @@ namespace WebAPI_2608.Controllers
         private readonly ILogger<ClienteController> _logger;
 
         public List<Cliente> clientes { get; set; }
+        public List<string> nomesAleatorios = new()
+        {
+            "Stephany Oliveira",
+            "Beatriz Cavalcanti",
+            "Ana Lívia Nunes",
+            "Evelyn da Cunha",
+            "João Miguel Costa",
+            "Pedro Lucas Rodrigues",
+            "Calebe Fernandes",
+            "Daniela Cavalcanti",
+            "Felipe Ribeiro",
+            "Cecília Fernandes"
+        };
+        Random rnd = new Random();
         
         public ClienteController(ILogger<ClienteController> logger)
         {
             _logger = logger;
+            
             clientes = Enumerable.Range(1, 10).Select(i => new Cliente
             {
                 DataDeNascimento = DateTime.Now.AddYears(-18 - i),
-                Nome = "João Silva número " + i,
-                CPF = (99999999999 - i).ToString(),
-                Idade = DateTime.Now.Year - DateTime.Now.AddYears(-18 -i).Year
+                Nome = nomesAleatorios[i - 1],
+                CPF = (99999999999 - rnd.NextInt64(9999999999, 99999999999)).ToString(),
+                Idade = DateTime.Now.Year - DateTime.Now.AddYears(-18 - i).Year
             }).ToList();
         }
 
-        [HttpGet]
-        public List<Cliente> Consulta(int index)
+        //GET
+        [HttpGet("/cliente/consultar")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public ActionResult<List<Cliente>> Consultar()
         {
-            return clientes;
+            return Ok(clientes);
         }
 
-        [HttpPost]
-        public Cliente Post(Cliente cliente)
+        //GET
+        [HttpGet("/cliente/{index}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<Cliente> Consultar2(int index)
         {
+            if (index >= clientes.Count || index < 0)
+                return NotFound();
+            return Ok(clientes[index]);
+        }
+
+        //POST
+        [HttpPost("/cliente/inserir")]
+        [Consumes("application/json")]
+        [Produces("application/json")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult Inserir(Cliente cliente)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
             clientes.Add(cliente);
-            return cliente;
+            return CreatedAtAction(nameof(Inserir), cliente);
         }
 
-        [HttpPut]
-        public Cliente Atualizar(int index, Cliente cliente)
+        //PUT
+        [HttpPut("/cliente/{index}/atualizar")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult Atualizar([FromRoute] int index, Cliente cliente)
         {
+            if (index >= clientes.Count || index < 0)
+                return BadRequest();
             clientes[index] = cliente;
-            return clientes[index];
+            return NoContent();
         }
 
-        [HttpDelete]
-        public List<Cliente> Deletar(int index)
+        //DELETE
+        [HttpDelete("/cliente/{index}/deletar")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult Deletar([FromRoute] int index)
         {
+            if (index >= clientes.Count || index < 0)
+                return NotFound();
             clientes.RemoveAt(index);
-            return clientes;
+            return Ok();
         }
     }
 }
