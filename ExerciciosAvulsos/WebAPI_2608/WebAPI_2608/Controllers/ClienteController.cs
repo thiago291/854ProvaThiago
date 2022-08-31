@@ -23,7 +23,7 @@ namespace WebAPI_2608.Controllers
             "Felipe Ribeiro",
             "Cecília Fernandes"
         };
-        Random rnd = new Random();
+        readonly Random rnd = new();
         
         public ClienteController(ILogger<ClienteController> logger)
         {
@@ -92,7 +92,7 @@ namespace WebAPI_2608.Controllers
             if (index >= clientes.Count || index < 0)
                 return NotFound();
             clientes.RemoveAt(index);
-            return Ok();
+            return NoContent();
         }
     }
 }
