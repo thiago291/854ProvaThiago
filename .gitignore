@@ -363,4 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 
 #JSON do programa
-appsettings.json
+/WebAPI_2608/WebAPI_2608/appsettings.json
