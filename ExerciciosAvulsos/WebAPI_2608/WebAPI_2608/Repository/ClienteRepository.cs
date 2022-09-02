@@ -11,13 +11,13 @@ namespace WebAPI_2608.Repository
             _configuration = configuration;
         }
 
-        public List<Cliente> GetClientes()
+        public List<ClienteID> GetClientes()
         {
             var query = "SELECT * FROM clientes";
 
             using var conn = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
 
-            return conn.Query<Cliente>(query).ToList();
+            return conn.Query<ClienteID>(query).ToList();
         }
 
         public bool InserirClientes(Cliente cliente)

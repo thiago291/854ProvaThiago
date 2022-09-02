@@ -19,7 +19,7 @@ namespace WebAPI_2608.Controllers
         //GET
         [HttpGet("/cliente/consultar")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public ActionResult<List<Cliente>> Consultar()
+        public ActionResult<List<ClienteID>> Consultar()
         {
             return Ok(_repositorycliente.GetClientes());
         }
