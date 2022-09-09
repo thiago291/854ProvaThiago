@@ -23,6 +23,14 @@ namespace WebAPI_2608.Controllers
             return Ok(_clienteService.ConsultarClientes());
         }
 
+        //GET por CPF
+        [HttpGet("/cliente/consultar/{cpf}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public ActionResult<List<ClienteID>> ConsultarClientesCPF(string cpf)
+        {
+            return Ok(_clienteService.ConsultarClientesCPF(cpf));
+        }
+
         //POST
         [HttpPost("/cliente/inserir")]
         [Consumes("application/json")]

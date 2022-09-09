@@ -23,6 +23,17 @@ namespace WebAPI_2608.Infra.Data.Repository
             return conn.Query<ClienteID>(query).ToList();
         }
 
+        public ClienteID ConsultarClientesCPF(string cpf)
+        {
+            var query = "SELECT * FROM clientes WHERE cpf = @cpf";
+            var parameters = new DynamicParameters();
+            parameters.Add("cpf", cpf);
+
+            using var conn = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
+
+            return conn.QueryFirstOrDefault<ClienteID>(query,parameters);
+        }
+
         public bool InserirClientes(Cliente cliente)
         {
             var query = $"INSERT INTO clientes VALUES (@cpf, @nome, @dataNascimento, @idade)";

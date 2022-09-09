@@ -8,5 +8,6 @@ namespace WebAPI_2608.Core.Interface
         bool InserirClientes(Cliente cliente);
         bool DeletarClientes(long id);
         bool AlterarClientes(long id, Cliente cliente);
+        ClienteID ConsultarClientesCPF(string cpf);
     }
 }
