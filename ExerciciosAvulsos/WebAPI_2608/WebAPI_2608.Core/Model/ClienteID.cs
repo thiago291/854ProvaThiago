@@ -1,9 +1,11 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace WebAPI_2608
+namespace WebAPI_2608.Core.Model
 {
-    public class Cliente
+    public class ClienteID
     {
+        public long? ID { get; }
+
         [MinLength(11)]
         [MaxLength(11)]
         [Required]

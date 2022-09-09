@@ -4,6 +4,138 @@
     "H:\\github\\854ProvaThiago\\ExerciciosAvulsos\\WebAPI_2608\\WebAPI_2608\\WebAPI_2608.csproj": {}
   },
   "projects": {
+    "H:\\github\\854ProvaThiago\\ExerciciosAvulsos\\WebAPI_2608\\WebAPI_2608.Core\\WebAPI_2608.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "H:\\github\\854ProvaThiago\\ExerciciosAvulsos\\WebAPI_2608\\WebAPI_2608.Core\\WebAPI_2608.Core.csproj",
+        "projectName": "WebAPI_2608.Core",
+        "projectPath": "H:\\github\\854ProvaThiago\\ExerciciosAvulsos\\WebAPI_2608\\WebAPI_2608.Core\\WebAPI_2608.Core.csproj",
+        "packagesPath": "C:\\Users\\thiag\\.nuget\\packages\\",
+        "outputPath": "H:\\github\\854ProvaThiago\\ExerciciosAvulsos\\WebAPI_2608\\WebAPI_2608.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\thiag\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "H:\\github\\854ProvaThiago\\ExerciciosAvulsos\\WebAPI_2608\\WebAPI_2608.Infra.Data\\WebAPI_2608.Infra.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "H:\\github\\854ProvaThiago\\ExerciciosAvulsos\\WebAPI_2608\\WebAPI_2608.Infra.Data\\WebAPI_2608.Infra.Data.csproj",
+        "projectName": "WebAPI_2608.Infra.Data",
+        "projectPath": "H:\\github\\854ProvaThiago\\ExerciciosAvulsos\\WebAPI_2608\\WebAPI_2608.Infra.Data\\WebAPI_2608.Infra.Data.csproj",
+        "packagesPath": "C:\\Users\\thiag\\.nuget\\packages\\",
+        "outputPath": "H:\\github\\854ProvaThiago\\ExerciciosAvulsos\\WebAPI_2608\\WebAPI_2608.Infra.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\thiag\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "H:\\github\\854ProvaThiago\\ExerciciosAvulsos\\WebAPI_2608\\WebAPI_2608.Core\\WebAPI_2608.Core.csproj": {
+                "projectPath": "H:\\github\\854ProvaThiago\\ExerciciosAvulsos\\WebAPI_2608\\WebAPI_2608.Core\\WebAPI_2608.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.123, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "H:\\github\\854ProvaThiago\\ExerciciosAvulsos\\WebAPI_2608\\WebAPI_2608\\WebAPI_2608.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -30,7 +162,14 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "H:\\github\\854ProvaThiago\\ExerciciosAvulsos\\WebAPI_2608\\WebAPI_2608.Core\\WebAPI_2608.Core.csproj": {
+                "projectPath": "H:\\github\\854ProvaThiago\\ExerciciosAvulsos\\WebAPI_2608\\WebAPI_2608.Core\\WebAPI_2608.Core.csproj"
+              },
+              "H:\\github\\854ProvaThiago\\ExerciciosAvulsos\\WebAPI_2608\\WebAPI_2608.Infra.Data\\WebAPI_2608.Infra.Data.csproj": {
+                "projectPath": "H:\\github\\854ProvaThiago\\ExerciciosAvulsos\\WebAPI_2608\\WebAPI_2608.Infra.Data\\WebAPI_2608.Infra.Data.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

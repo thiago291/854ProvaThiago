@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using WebAPI_2608.Repository;
+using WebAPI_2608.Core.Interface;
+using WebAPI_2608.Core.Model;
 
 namespace WebAPI_2608.Controllers
 {
@@ -7,21 +8,19 @@ namespace WebAPI_2608.Controllers
     [Route("[controller]")]
     public class ClienteController : ControllerBase
     {
-        public List<Cliente> clientes { get; set; }
-        public ClienteRepository _repositorycliente;
+        public IClienteService _clienteService;
 
-        public ClienteController(IConfiguration configuration)
+        public ClienteController(IClienteService clienteService)
         {
-            clientes = new List<Cliente>();
-            _repositorycliente = new ClienteRepository(configuration);
+            _clienteService = clienteService;
         }
 
         //GET
         [HttpGet("/cliente/consultar")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public ActionResult<List<ClienteID>> Consultar()
+        public ActionResult<List<ClienteID>> ConsultarClientes()
         {
-            return Ok(_repositorycliente.GetClientes());
+            return Ok(_clienteService.ConsultarClientes());
         }
 
         //POST
@@ -32,7 +31,7 @@ namespace WebAPI_2608.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public ActionResult<Cliente> Inserir(Cliente cliente)
         {
-            if(!_repositorycliente.InserirClientes(cliente))
+            if (!_clienteService.InserirClientes(cliente))
                 return BadRequest();
             return CreatedAtAction(nameof(Inserir), cliente);
         }
@@ -43,7 +42,7 @@ namespace WebAPI_2608.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public ActionResult<List<Cliente>> Atualizar([FromRoute] long id, Cliente cliente)
         {
-            if (!_repositorycliente.AlterarClientes(id, cliente))
+            if (!_clienteService.AlterarClientes(id, cliente))
                 return BadRequest();
             return NoContent();
         }
@@ -54,11 +53,9 @@ namespace WebAPI_2608.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<List<Cliente>> Deletar([FromRoute] long id)
         {
-            if (!_repositorycliente.DeletarClientes(id))
+            if (!_clienteService.DeletarClientes(id))
                 return NotFound();
             return NoContent();
         }
-
-
     }
 }

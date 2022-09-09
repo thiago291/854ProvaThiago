@@ -1,9 +1,12 @@
 ﻿using Dapper;
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
+using WebAPI_2608.Core.Interface;
+using WebAPI_2608.Core.Model;
 
-namespace WebAPI_2608.Repository
+namespace WebAPI_2608.Infra.Data.Repository
 {
-    public class ClienteRepository
+    public class ClienteRepository : IClienteRepository
     {
         private readonly IConfiguration _configuration;
         public ClienteRepository(IConfiguration configuration)
@@ -11,7 +14,7 @@ namespace WebAPI_2608.Repository
             _configuration = configuration;
         }
 
-        public List<ClienteID> GetClientes()
+        public List<ClienteID> ConsultarClientes()
         {
             var query = "SELECT * FROM clientes";
 
@@ -30,7 +33,7 @@ namespace WebAPI_2608.Repository
             parameters.Add("idade", cliente.Idade);
 
             using var conn = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
-            
+
             return conn.Execute(query, parameters) > 0;
         }
 
