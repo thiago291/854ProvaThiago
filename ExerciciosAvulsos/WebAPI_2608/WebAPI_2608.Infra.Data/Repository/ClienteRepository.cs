@@ -23,7 +23,7 @@ namespace WebAPI_2608.Infra.Data.Repository
             return conn.Query<ClienteID>(query).ToList();
         }
 
-        public ClienteID ConsultarClientesCPF(string cpf)
+        public ClienteID ConsultarClientes(string cpf)
         {
             var query = "SELECT * FROM clientes WHERE cpf = @cpf";
             var parameters = new DynamicParameters();
@@ -70,6 +70,17 @@ namespace WebAPI_2608.Infra.Data.Repository
             using var conn = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
 
             return conn.Execute(query, parameters) > 0;
+        }
+
+        public ClienteID ConsultarClientes(long id)
+        {
+            var query = "SELECT * FROM clientes WHERE id = @id";
+            var parameters = new DynamicParameters();
+            parameters.Add("id", id);
+
+            using var conn = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
+
+            return conn.QueryFirstOrDefault<ClienteID>(query, parameters);
         }
     }
 }

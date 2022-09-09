@@ -21,9 +21,14 @@ namespace WebAPI_2608.Core.Service
             return _clienteRepository.ConsultarClientes();
         }
 
-        public ClienteID ConsultarClientesCPF(string cpf)
+        public ClienteID ConsultarClientes(string cpf)
         {
-            return _clienteRepository.ConsultarClientesCPF(cpf);
+            return _clienteRepository.ConsultarClientes(cpf);
+        }
+
+        public ClienteID ConsultarClientes(long id)
+        {
+            return _clienteRepository.ConsultarClientes(id);
         }
 
         public bool DeletarClientes(long id)
