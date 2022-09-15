@@ -10,30 +10,18 @@ namespace Trabalho_Final_ProgWebIII.Controllers
     [Consumes("application/json")]
     [Produces("application/json")]
     //[TypeFilter(typeof(LogResourceFilter))]
-    public class EventoController : ControllerBase
+    public class CityEventController : ControllerBase
     {
-        public IEventoService _eventoService;
+        public ICityEventService _eventoService;
 
-        public EventoController(IEventoService eventoService)
+        public CityEventController(ICityEventService eventoService)
         {
             Console.WriteLine("Iniciando Evento Controller");
             _eventoService = eventoService;
         }
 
-        //GET
-        [HttpGet("/evento/consultar")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        //[TypeFilter(typeof(LogActionFilter))]
-        //[TypeFilter(typeof(LogAuthorizationFilter))]
-        //[TypeFilter(typeof(LogTimeFilter))]
-        public ActionResult<List<CityEvent>> ConsultarEvento()
-        {
-            Console.WriteLine("Iniciando");
-            return Ok(_eventoService.ConsultarEvento());
-        }
-
         //GET por título
-        [HttpGet("/evento/consultar/{titulo}")]
+        [HttpGet("/evento/consultar/titulo")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -46,15 +34,29 @@ namespace Trabalho_Final_ProgWebIII.Controllers
             return Ok(evento);
         }
 
-        //GET por ID
-        [HttpGet("/evento/consultar/{id}")]
+        //GET por local
+        [HttpGet("/evento/consultar/local")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         //[TypeFilter(typeof(LogTimeFilter))]
-        public ActionResult<CityEvent> ConsultarEvento(long id)
+        public ActionResult<CityEvent> ConsultarEvento(string local, DateTime date)
         {
-            var evento = _eventoService.ConsultarEventoPorID(id);
+            var evento = _eventoService.ConsultarEventoPorLocal(local, date);
+            if (evento == null)
+                return NotFound();
+            return Ok(evento);
+        }
+
+        //GET por range
+        [HttpGet("/evento/consultar/range")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        //[TypeFilter(typeof(LogTimeFilter))]
+        public ActionResult<CityEvent> ConsultarEvento(long minValor, long maxValor, DateTime date)
+        {
+            var evento = _eventoService.ConsultarEventoPorRange(minValor, maxValor, date);
             if (evento == null)
                 return NotFound();
             return Ok(evento);

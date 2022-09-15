@@ -6,38 +6,29 @@ using Trabalho_Final_ProgWebIII.Core.Model;
 
 namespace Trabalho_Final_ProgWebIII.Infra.Data.Repository
 {
-    public class EventoRepository : IEventoRepository
+    public class CityEventRepository : ICityEventRepository
     {
         private readonly IConfiguration _configuration;
-        public EventoRepository(IConfiguration configuration)
+        public CityEventRepository(IConfiguration configuration)
         {
             _configuration = configuration;
         }
 
-        public List<CityEvent> ConsultarEvento()
+        public List<CityEvent> ConsultarEventoPorTitulo(string titulo)
         {
-            var query = "SELECT * FROM CityEvent";
-
-            using var conn = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
-
-            return conn.Query<CityEvent>(query).ToList();
-        }
-
-        public CityEvent ConsultarEventoPorTitulo(string titulo)
-        {
-            var query = "SELECT * FROM CityEvent WHERE Title = @titulo";
+            var query = "SELECT * FROM CityEvent WHERE Title LIKE %@titulo%";
             var parameters = new DynamicParameters();
             parameters.Add("titulo", titulo);
 
             using var conn = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
 
-            return conn.QueryFirstOrDefault<CityEvent>(query, parameters);
+            return conn.Query<CityEvent>(query,parameters).ToList();
         }
 
         public bool InserirNovoEvento(CityEvent evento)
         {
-            var query = $"INSERT INTO CityEvent VALUES (@Title, @Description, @DateHourEvent, @Local, @Address, @Price)";
-            //var query = $"INSERT INTO CityEvent VALUES (@Title, @Description, @DateHourEvent, @Local, @Address, @Price, @Status)";
+            //var query = $"INSERT INTO CityEvent VALUES (@Title, @Description, @DateHourEvent, @Local, @Address, @Price)";
+            var query = $"INSERT INTO CityEvent VALUES (@Title, @Description, @DateHourEvent, @Local, @Address, @Price, @Status)";
             var parameters = new DynamicParameters();
             parameters.Add("Title", evento.Title);
             parameters.Add("Description", evento.Description);
@@ -45,7 +36,7 @@ namespace Trabalho_Final_ProgWebIII.Infra.Data.Repository
             parameters.Add("Local", evento.Local);
             parameters.Add("Address", evento.Address);
             parameters.Add("Price", evento.Price);
-            //parameters.Add("Status", evento.Status);
+            parameters.Add("Status", evento.Status);
 
             using var conn = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
 
@@ -54,6 +45,7 @@ namespace Trabalho_Final_ProgWebIII.Infra.Data.Repository
 
         public bool DeletarEvento(long id)
         {
+
             var query = $"DELETE FROM CityEvent WHERE IdEvent = @id";
             var parameters = new DynamicParameters();
             parameters.Add("id", id);
@@ -64,8 +56,8 @@ namespace Trabalho_Final_ProgWebIII.Infra.Data.Repository
 
         public bool AlterarEvento(long id, CityEvent evento)
         {
-            var query = $"UPDATE CityEvent SET Title = @Title, Description = @Description, DateHourEvent = @DateHourEvent, Local = @Local, Address = @Address, Price = @Price  WHERE IdEvent = @id";
-            //var query = $"UPDATE CityEvent SET Title = @Title, Description = @Description, DateHourEvent = @DateHourEvent, Local = @Local, Address = @Address, Price = @Price, Status = @Status  WHERE IdEvent = @id";
+            //var query = $"UPDATE CityEvent SET Title = @Title, Description = @Description, DateHourEvent = @DateHourEvent, Local = @Local, Address = @Address, Price = @Price  WHERE IdEvent = @id";
+            var query = $"UPDATE CityEvent SET Title = @Title, Description = @Description, DateHourEvent = @DateHourEvent, Local = @Local, Address = @Address, Price = @Price, Status = @Status  WHERE IdEvent = @id";
             var parameters = new DynamicParameters();
             parameters.Add("Title", evento.Title);
             parameters.Add("Description", evento.Description);
@@ -73,22 +65,46 @@ namespace Trabalho_Final_ProgWebIII.Infra.Data.Repository
             parameters.Add("Local", evento.Local);
             parameters.Add("Address", evento.Address);
             parameters.Add("Price", evento.Price);
-            //parameters.Add("Status", evento.Status);
+            parameters.Add("Status", evento.Status);
             parameters.Add("id", id);
             using var conn = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
 
             return conn.Execute(query, parameters) > 0;
         }
 
-        public CityEvent ConsultarEventoPorID(long id)
+        public bool AlterarEvento(long id)
         {
-            var query = "SELECT * FROM CityEvent WHERE IdEvent = @id";
+            var query = $"UPDATE CityEvent SET Status = 0  WHERE IdEvent = @id";
             var parameters = new DynamicParameters();
             parameters.Add("id", id);
+            using var conn = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
+
+            return conn.Execute(query, parameters) > 0;
+        }
+
+        public List<CityEvent> ConsultarEventoPorLocal(string local, DateTime date)
+        {
+            var query = "SELECT * FROM CityEvent WHERE Local = @local and CAST(DateHourEvent as DATE) = Cast(@date as DATE)";
+            var parameters = new DynamicParameters();
+            parameters.Add("local", local);
+            parameters.Add("date", date);
 
             using var conn = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
 
-            return conn.QueryFirstOrDefault<CityEvent>(query, parameters);
+            return conn.Query<CityEvent>(query, parameters).ToList();
+        }
+
+        public List<CityEvent> ConsultarEventoPorRange(double minValor, double maxValor, DateTime date)
+        {
+            var query = "SELECT * FROM CityEvent WHERE CAST(DateHourEvent as DATE) = Cast(@date as DATE) AND Price BETWEEN @minValor AND @maxValor";
+            var parameters = new DynamicParameters();
+            parameters.Add("minValor", minValor);
+            parameters.Add("maxValor", maxValor);
+            parameters.Add("date", date);
+
+            using var conn = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
+
+            return conn.Query<CityEvent>(query, parameters).ToList();
         }
     }
 }

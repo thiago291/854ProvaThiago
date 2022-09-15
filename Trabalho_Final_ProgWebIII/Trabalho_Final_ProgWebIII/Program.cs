@@ -20,8 +20,10 @@ builder.Services.AddSwaggerGen();
 //}
 //    );
 
-builder.Services.AddScoped<IEventoService, EventoService>();
-builder.Services.AddScoped<IEventoRepository, EventoRepository>();
+builder.Services.AddScoped<ICityEventService, CityEventService>();
+builder.Services.AddScoped<ICityEventRepository, CityEventRepository>();
+builder.Services.AddScoped<IEventReservationService, EventReservationService>();
+builder.Services.AddScoped<IEventReservationRepository, EventReservationRepository>();
 //builder.Services.AddScoped<GaranteProdutoClienteActionFilter>();
 //builder.Services.AddScoped<CPFNaoEstaDuplicadoActionFilter>();
 
