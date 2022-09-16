@@ -24,6 +24,11 @@ namespace Trabalho_Final_ProgWebIII.Core.Service
             return _eventoRepository.AlterarEvento(id);
         }
 
+        public bool ConsultarEventoPorID(long id)
+        {
+            return _eventoRepository.ConsultarEventoPorID(id);
+        }
+
         public List<CityEvent> ConsultarEventoPorLocal(string local, DateTime date)
         {
             return _eventoRepository.ConsultarEventoPorLocal(local, date);

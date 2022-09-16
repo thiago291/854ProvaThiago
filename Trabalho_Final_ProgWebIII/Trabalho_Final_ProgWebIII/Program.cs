@@ -1,7 +1,7 @@
 using Trabalho_Final_ProgWebIII.Core.Interface;
 using Trabalho_Final_ProgWebIII.Core.Service;
 using Trabalho_Final_ProgWebIII.Infra.Data.Repository;
-//using Trabalho_Final_ProgWebIII.Filters;
+using Trabalho_Final_ProgWebIII.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,8 +24,8 @@ builder.Services.AddScoped<ICityEventService, CityEventService>();
 builder.Services.AddScoped<ICityEventRepository, CityEventRepository>();
 builder.Services.AddScoped<IEventReservationService, EventReservationService>();
 builder.Services.AddScoped<IEventReservationRepository, EventReservationRepository>();
-//builder.Services.AddScoped<GaranteProdutoClienteActionFilter>();
-//builder.Services.AddScoped<CPFNaoEstaDuplicadoActionFilter>();
+builder.Services.AddScoped<GaranteEventoActionFilter>();
+builder.Services.AddScoped<GaranteReservaActionFilter>();
 
 var app = builder.Build();
 

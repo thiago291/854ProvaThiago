@@ -1,24 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Trabalho_Final_ProgWebIII.Core.Model
 {
     public class EventReservation
-    {
-        [Required]
-        public long? IdReservation { get; set; }
+    {   
+        //public long? IdReservation { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "ID do evento é obrigatória")]
         public long? IdEvent { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Nome do titular da reserva é obrigatório")]
         public string? PersonName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Quantidade de ingressos é obrigatória")]
         public string? Quantity { get; set; }
     }
 }

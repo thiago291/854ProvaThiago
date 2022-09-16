@@ -9,5 +9,6 @@ namespace Trabalho_Final_ProgWebIII.Core.Interface
         public bool DeletarReserva(long id);
         public bool AlterarReserva(long id, EventReservation reserva);
         public bool EventoTemReserva(long id);
+
     }
 }

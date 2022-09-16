@@ -5,29 +5,26 @@ namespace Trabalho_Final_ProgWebIII.Core.Model
     public class CityEvent
     {
 
-        [Required]
-        public long? IdEvent { get; set; }
+        //[Required]
+        //public long? IdEvent { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Título é obrigatório")]
         public string? Title { get; set; }
 
-        [Required]
         public string? Description { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Data é obrigatória")]
         public DateTime DateHourEvent { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Local é obrigatório")]
         public string? Local { get; set; }
 
-        [Required]
         public string? Address { get; set; }
 
-        [Required]
-        [Range(0, 9999999999999999.99)]
+        [Range(0, 999999.99)]
         public decimal? Price { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Status é obrigatório")]
         public bool? Status { get; set; }
     }
 }

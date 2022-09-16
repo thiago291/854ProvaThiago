@@ -16,7 +16,8 @@ namespace Trabalho_Final_ProgWebIII.Infra.Data.Repository
 
         public EventReservation ConsultarReserva(string nome,string titulo)
         {
-            var query = "SELECT * FROM EventReservation WHERE Title LIKE %@titulo% AND PersonName = @nome";
+            //var query = "SELECT * FROM EventReservation WHERE Title LIKE '%' + @titulo +'%' AND PersonName = @nome";
+            var query = "SELECT E.IdReservation, E.IdEvent, E.PersonName, E.Quantity, C.Title FROM EventReservation as E JOIN CityEvent as C ON E.IdEvent = C.IdEvent WHERE C.Title LIKE '%' + @titulo +'%' AND E.PersonName = @nome";
             var parameters = new DynamicParameters();
             parameters.Add("titulo", titulo);
             parameters.Add("nome", nome);

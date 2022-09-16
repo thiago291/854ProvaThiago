@@ -16,7 +16,7 @@ namespace Trabalho_Final_ProgWebIII.Infra.Data.Repository
 
         public List<CityEvent> ConsultarEventoPorTitulo(string titulo)
         {
-            var query = "SELECT * FROM CityEvent WHERE Title LIKE %@titulo%";
+            var query = "SELECT * FROM CityEvent WHERE Title LIKE '%'+ @titulo +'%'";
             var parameters = new DynamicParameters();
             parameters.Add("titulo", titulo);
 
@@ -84,7 +84,7 @@ namespace Trabalho_Final_ProgWebIII.Infra.Data.Repository
 
         public List<CityEvent> ConsultarEventoPorLocal(string local, DateTime date)
         {
-            var query = "SELECT * FROM CityEvent WHERE Local = @local and CAST(DateHourEvent as DATE) = Cast(@date as DATE)";
+            var query = "SELECT * FROM CityEvent WHERE LOWER(Local) = LOWER(@local) and CAST(DateHourEvent as DATE) = Cast(@date as DATE)";
             var parameters = new DynamicParameters();
             parameters.Add("local", local);
             parameters.Add("date", date);
@@ -105,6 +105,19 @@ namespace Trabalho_Final_ProgWebIII.Infra.Data.Repository
             using var conn = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
 
             return conn.Query<CityEvent>(query, parameters).ToList();
+        }
+
+        public bool ConsultarEventoPorID(long id)
+        {
+            var query = "SELECT * FROM CityEvent WHERE IdEvent = @id";
+            var parameters = new DynamicParameters();
+            parameters.Add("id", id);
+
+            using var conn = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
+
+            if (conn.Query<EventReservation>(query, parameters).ToList() == null)
+                return false;
+            return true;
         }
     }
 }

@@ -11,5 +11,6 @@ namespace Trabalho_Final_ProgWebIII.Core.Interface
         public bool AlterarEvento(long id);
         public List<CityEvent> ConsultarEventoPorLocal(string local, DateTime date);
         public List<CityEvent> ConsultarEventoPorRange(double minValor, double maxValor, DateTime date);
+        public bool ConsultarEventoPorID(long id);
     }
 }

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Trabalho_Final_ProgWebIII.Core.Interface;
 using Trabalho_Final_ProgWebIII.Core.Model;
+using Trabalho_Final_ProgWebIII.Filters;
 //using Trabalho_Final_ProgWebIII.Filters;
 
 namespace Trabalho_Final_ProgWebIII.Controllers
@@ -53,7 +54,7 @@ namespace Trabalho_Final_ProgWebIII.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //[ServiceFilter(typeof(GaranteReservaActionFilter))]
+        [ServiceFilter(typeof(GaranteReservaActionFilter))]
         //[TypeFilter(typeof(LogTimeFilter))]
         public ActionResult<List<EventReservation>> Atualizar([FromRoute] long id, EventReservation reserva)
         {
@@ -68,7 +69,7 @@ namespace Trabalho_Final_ProgWebIII.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //[ServiceFilter(typeof(GaranteReservaActionFilter))]
+        [ServiceFilter(typeof(GaranteReservaActionFilter))]
         //[TypeFilter(typeof(LogTimeFilter))]
         public ActionResult<List<EventReservation>> Deletar([FromRoute] long id)
         {
