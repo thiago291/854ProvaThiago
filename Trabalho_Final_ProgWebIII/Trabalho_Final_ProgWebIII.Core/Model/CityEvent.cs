@@ -9,7 +9,7 @@ namespace Trabalho_Final_ProgWebIII.Core.Model
         //public long? IdEvent { get; set; }
 
         [Required(ErrorMessage = "Título é obrigatório")]
-        public string? Title { get; set; }
+        public string Title { get; set; }
 
         public string? Description { get; set; }
 
@@ -17,7 +17,7 @@ namespace Trabalho_Final_ProgWebIII.Core.Model
         public DateTime DateHourEvent { get; set; }
 
         [Required(ErrorMessage = "Local é obrigatório")]
-        public string? Local { get; set; }
+        public string Local { get; set; }
 
         public string? Address { get; set; }
 

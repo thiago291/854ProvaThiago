@@ -7,12 +7,13 @@ namespace Trabalho_Final_ProgWebIII.Core.Model
         //public long? IdReservation { get; set; }
 
         [Required(ErrorMessage = "ID do evento é obrigatória")]
-        public long? IdEvent { get; set; }
+        public long IdEvent { get; set; }
 
         [Required(ErrorMessage = "Nome do titular da reserva é obrigatório")]
-        public string? PersonName { get; set; }
+        public string PersonName { get; set; }
 
+        [Range(0,100000)]
         [Required(ErrorMessage = "Quantidade de ingressos é obrigatória")]
-        public string? Quantity { get; set; }
+        public long Quantity { get; set; }
     }
 }

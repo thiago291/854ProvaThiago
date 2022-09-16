@@ -115,7 +115,7 @@ namespace Trabalho_Final_ProgWebIII.Infra.Data.Repository
 
             using var conn = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
 
-            if (conn.Query<EventReservation>(query, parameters).ToList() == null)
+            if (conn.Query<EventReservation>(query, parameters).ToList().Count == 0)
                 return false;
             return true;
         }

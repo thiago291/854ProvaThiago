@@ -6,8 +6,10 @@ namespace Trabalho_Final_ProgWebIII.Core.Service
     public class EventReservationService : IEventReservationService
     {
         public IEventReservationRepository _reservaRepository;
+        
         public EventReservationService(IEventReservationRepository reservaRepository)
         {
+            //_eventoService = eventoService;
             _reservaRepository = reservaRepository;
         }
 
@@ -19,6 +21,11 @@ namespace Trabalho_Final_ProgWebIII.Core.Service
         public EventReservation ConsultarReserva(string nome, string titulo)
         {
             return _reservaRepository.ConsultarReserva(nome, titulo);
+        }
+
+        public bool ConsultarReservaPorID(long id)
+        {
+            return _reservaRepository.ConsultarReservaPorID(id); 
         }
 
         public bool DeletarReserva(long id)

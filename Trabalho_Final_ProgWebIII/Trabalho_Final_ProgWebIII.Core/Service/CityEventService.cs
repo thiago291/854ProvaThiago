@@ -6,11 +6,11 @@ namespace Trabalho_Final_ProgWebIII.Core.Service
     public class CityEventService: ICityEventService
     {
         public ICityEventRepository _eventoRepository;
-        public IEventReservationRepository _reservaRepository;
-        public CityEventService(ICityEventRepository eventoRepository, IEventReservationRepository reservaRepository)
+        public IEventReservationService _reservaService;
+        public CityEventService(ICityEventRepository eventoRepository, IEventReservationService reservaService)
         {
             _eventoRepository = eventoRepository;
-            _reservaRepository = reservaRepository; 
+            _reservaService = reservaService; 
         }
 
 
@@ -46,7 +46,7 @@ namespace Trabalho_Final_ProgWebIII.Core.Service
 
         public bool DeletarEvento(long id)
         {
-            if (_reservaRepository.EventoTemReserva(id))
+            if (_reservaService.EventoTemReserva(id))
                 return _eventoRepository.AlterarEvento(id);
             return _eventoRepository.DeletarEvento(id);
         }

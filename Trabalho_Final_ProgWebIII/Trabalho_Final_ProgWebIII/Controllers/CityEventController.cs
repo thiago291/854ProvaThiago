@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Trabalho_Final_ProgWebIII.Core.Interface;
 using Trabalho_Final_ProgWebIII.Core.Model;
@@ -10,6 +11,7 @@ namespace Trabalho_Final_ProgWebIII.Controllers
     [Route("[controller]")]
     [Consumes("application/json")]
     [Produces("application/json")]
+    //[Authorize(Roles = "admin, cliente")]
     //[TypeFilter(typeof(LogResourceFilter))]
     public class CityEventController : ControllerBase
     {
@@ -40,6 +42,7 @@ namespace Trabalho_Final_ProgWebIII.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+
         //[TypeFilter(typeof(LogTimeFilter))]
         public ActionResult<CityEvent> ConsultarEvento(string local, DateTime date)
         {
@@ -69,6 +72,7 @@ namespace Trabalho_Final_ProgWebIII.Controllers
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [Authorize(Roles = "admin")]
         //[TypeFilter(typeof(LogTimeFilter))]
         public ActionResult<CityEvent> Inserir(CityEvent evento)
         {
@@ -84,6 +88,7 @@ namespace Trabalho_Final_ProgWebIII.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ServiceFilter(typeof(GaranteEventoActionFilter))]
+        [Authorize(Roles = "admin")]
         //[TypeFilter(typeof(LogTimeFilter))]
         public ActionResult<List<CityEvent>> Atualizar([FromRoute] long id, CityEvent evento)
         {
@@ -99,6 +104,7 @@ namespace Trabalho_Final_ProgWebIII.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ServiceFilter(typeof(GaranteEventoActionFilter))]
+        [Authorize(Roles = "admin")]
         //[TypeFilter(typeof(LogTimeFilter))]
         public ActionResult<List<CityEvent>> Deletar([FromRoute] long id)
         {

@@ -64,3 +64,4 @@ H:\github\854ProvaThiago\ExerciciosAvulsos\WebAPI_2608\WebAPI_2608\bin\Debug\net
 H:\github\854ProvaThiago\ExerciciosAvulsos\WebAPI_2608\WebAPI_2608\bin\Debug\net6.0\WebAPI_2608.Infra.Data.dll
 H:\github\854ProvaThiago\ExerciciosAvulsos\WebAPI_2608\WebAPI_2608\bin\Debug\net6.0\WebAPI_2608.Core.pdb
 H:\github\854ProvaThiago\ExerciciosAvulsos\WebAPI_2608\WebAPI_2608\bin\Debug\net6.0\WebAPI_2608.Infra.Data.pdb
+H:\github\854ProvaThiago\ExerciciosAvulsos\WebAPI_2608\WebAPI_2608\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

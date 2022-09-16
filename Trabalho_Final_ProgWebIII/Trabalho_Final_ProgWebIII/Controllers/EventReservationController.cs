@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Trabalho_Final_ProgWebIII.Core.Interface;
 using Trabalho_Final_ProgWebIII.Core.Model;
@@ -24,6 +25,7 @@ namespace Trabalho_Final_ProgWebIII.Controllers
         //GET por nome e título
         [HttpGet("/reserva/consultar")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [Authorize(Roles = "admin,cliente")]
         //[TypeFilter(typeof(LogActionFilter))]
         //[TypeFilter(typeof(LogAuthorizationFilter))]
         //[TypeFilter(typeof(LogTimeFilter))]
@@ -39,6 +41,8 @@ namespace Trabalho_Final_ProgWebIII.Controllers
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [Authorize(Roles = "admin,cliente")]
+        [ServiceFilter(typeof(GaranteEventoReservaActionFilter))]
         //[TypeFilter(typeof(LogTimeFilter))]
         public ActionResult<EventReservation> Inserir(EventReservation reserva)
         {
@@ -54,6 +58,7 @@ namespace Trabalho_Final_ProgWebIII.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ServiceFilter(typeof(GaranteReservaActionFilter))]
+        [Authorize(Roles = "admin")]
         //[TypeFilter(typeof(LogTimeFilter))]
         public ActionResult<List<EventReservation>> Atualizar([FromRoute] long id, EventReservation reserva)
         {
@@ -69,6 +74,7 @@ namespace Trabalho_Final_ProgWebIII.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ServiceFilter(typeof(GaranteReservaActionFilter))]
+        [Authorize(Roles = "admin")]
         //[TypeFilter(typeof(LogTimeFilter))]
         public ActionResult<List<EventReservation>> Deletar([FromRoute] long id)
         {

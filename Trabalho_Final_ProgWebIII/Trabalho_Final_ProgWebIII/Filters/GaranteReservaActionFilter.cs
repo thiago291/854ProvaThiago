@@ -14,7 +14,7 @@ namespace Trabalho_Final_ProgWebIII.Filters
         public override void OnActionExecuting(ActionExecutingContext context)
         {
             long id = (long)context.ActionArguments["id"];
-            if (_reservaService.EventoTemReserva(id) == null)
+            if (!_reservaService.EventoTemReserva(id))
             {
                 context.Result = new StatusCodeResult(StatusCodes.Status400BadRequest);
             }

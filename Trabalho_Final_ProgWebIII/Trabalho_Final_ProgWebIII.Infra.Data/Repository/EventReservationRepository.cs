@@ -63,13 +63,26 @@ namespace Trabalho_Final_ProgWebIII.Infra.Data.Repository
 
         public bool EventoTemReserva(long id)
         {
+            var query = "SELECT * FROM EventReservation WHERE IdEvent = @id";
+            var parameters = new DynamicParameters();
+            parameters.Add("id", id);
+
+            using var conn = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
+
+            if(conn.Query<EventReservation>(query, parameters).ToList().Count() == 0)
+                return false;
+            return true;
+        }
+
+        public bool ConsultarReservaPorID(long id)
+        {
             var query = "SELECT * FROM EventReservation WHERE IdReservation = @id";
             var parameters = new DynamicParameters();
             parameters.Add("id", id);
 
             using var conn = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
 
-            if(conn.Query<EventReservation>(query, parameters).ToList() == null)
+            if (conn.Query<EventReservation>(query, parameters).ToList().Count() == 0)
                 return false;
             return true;
         }
