@@ -29,7 +29,6 @@ namespace Trabalho_Final_ProgWebIII.Core.Service
                 {
                     new Claim(ClaimTypes.Name, nome),
                     new Claim(ClaimTypes.Role, permissao),
-                    new Claim("teste", "123")
                 }),
                 Expires = DateTime.UtcNow.AddHours(4),
                 SigningCredentials = new SigningCredentials(

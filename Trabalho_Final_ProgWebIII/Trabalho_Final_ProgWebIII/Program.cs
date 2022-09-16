@@ -26,7 +26,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidIssuer = "APIClientes.com",
             ValidateAudience = false,
             ValidAudience = "APIEvents.com",
-
         };
     });
 
@@ -62,13 +61,11 @@ builder.Services.AddSwaggerGen(setup =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//builder.Services.AddMvc(options =>
-//{
-//    options.Filters.Add<LogResultFilter>();
-//    options.Filters.Add<GeneralExceptionFilter>();
-//    options.Filters.Add<LogTimeFilter>();
-//}
-//    );
+builder.Services.AddMvc(options =>
+{
+    options.Filters.Add<GeneralExceptionFilter>();
+}
+    );
 
 builder.Services.AddScoped<ICityEventService, CityEventService>();
 builder.Services.AddScoped<ICityEventRepository, CityEventRepository>();
@@ -77,7 +74,7 @@ builder.Services.AddScoped<IEventReservationRepository, EventReservationReposito
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<GaranteEventoActionFilter>();
 builder.Services.AddScoped<GaranteReservaActionFilter>();
-builder.Services.AddScoped < GaranteEventoReservaActionFilter>();
+builder.Services.AddScoped<GaranteEventoReservaActionFilter>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

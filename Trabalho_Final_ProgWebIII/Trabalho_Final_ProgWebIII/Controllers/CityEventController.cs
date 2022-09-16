@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Trabalho_Final_ProgWebIII.Core.Interface;
 using Trabalho_Final_ProgWebIII.Core.Model;
 using Trabalho_Final_ProgWebIII.Filters;
-//using Trabalho_Final_ProgWebIII.Filters;
 
 namespace Trabalho_Final_ProgWebIII.Controllers
 {
@@ -11,8 +10,6 @@ namespace Trabalho_Final_ProgWebIII.Controllers
     [Route("[controller]")]
     [Consumes("application/json")]
     [Produces("application/json")]
-    //[Authorize(Roles = "admin, cliente")]
-    //[TypeFilter(typeof(LogResourceFilter))]
     public class CityEventController : ControllerBase
     {
         public ICityEventService _eventoService;
@@ -28,7 +25,6 @@ namespace Trabalho_Final_ProgWebIII.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        //[TypeFilter(typeof(LogTimeFilter))]
         public ActionResult<CityEvent> ConsultarEvento(string titulo)
         {
             var evento = _eventoService.ConsultarEventoPorTitulo(titulo);
@@ -42,8 +38,6 @@ namespace Trabalho_Final_ProgWebIII.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-
-        //[TypeFilter(typeof(LogTimeFilter))]
         public ActionResult<CityEvent> ConsultarEvento(string local, DateTime date)
         {
             var evento = _eventoService.ConsultarEventoPorLocal(local, date);
@@ -57,7 +51,6 @@ namespace Trabalho_Final_ProgWebIII.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        //[TypeFilter(typeof(LogTimeFilter))]
         public ActionResult<CityEvent> ConsultarEvento(long minValor, long maxValor, DateTime date)
         {
             var evento = _eventoService.ConsultarEventoPorRange(minValor, maxValor, date);
@@ -72,8 +65,8 @@ namespace Trabalho_Final_ProgWebIII.Controllers
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [Authorize(Roles = "admin")]
-        //[TypeFilter(typeof(LogTimeFilter))]
         public ActionResult<CityEvent> Inserir(CityEvent evento)
         {
             if (!_eventoService.InserirNovoEvento(evento))
@@ -85,11 +78,11 @@ namespace Trabalho_Final_ProgWebIII.Controllers
         [HttpPut("/evento/{id}/atualizar")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ServiceFilter(typeof(GaranteEventoActionFilter))]
         [Authorize(Roles = "admin")]
-        //[TypeFilter(typeof(LogTimeFilter))]
         public ActionResult<List<CityEvent>> Atualizar([FromRoute] long id, CityEvent evento)
         {
             if (!_eventoService.AlterarEvento(id, evento))
@@ -101,11 +94,11 @@ namespace Trabalho_Final_ProgWebIII.Controllers
         [HttpDelete("/evento/{id}/deletar")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ServiceFilter(typeof(GaranteEventoActionFilter))]
         [Authorize(Roles = "admin")]
-        //[TypeFilter(typeof(LogTimeFilter))]
         public ActionResult<List<CityEvent>> Deletar([FromRoute] long id)
         {
             if (!_eventoService.DeletarEvento(id))

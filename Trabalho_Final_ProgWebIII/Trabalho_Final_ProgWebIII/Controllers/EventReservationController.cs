@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Trabalho_Final_ProgWebIII.Core.Interface;
 using Trabalho_Final_ProgWebIII.Core.Model;
 using Trabalho_Final_ProgWebIII.Filters;
-//using Trabalho_Final_ProgWebIII.Filters;
 
 namespace Trabalho_Final_ProgWebIII.Controllers
 {
@@ -11,7 +10,6 @@ namespace Trabalho_Final_ProgWebIII.Controllers
     [Route("[controller]")]
     [Consumes("application/json")]
     [Produces("application/json")]
-    //[TypeFilter(typeof(LogResourceFilter))]
     public class EventReservationController : ControllerBase
     {
         public IEventReservationService _reservaService;
@@ -25,10 +23,8 @@ namespace Trabalho_Final_ProgWebIII.Controllers
         //GET por nome e título
         [HttpGet("/reserva/consultar")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [Authorize(Roles = "admin,cliente")]
-        //[TypeFilter(typeof(LogActionFilter))]
-        //[TypeFilter(typeof(LogAuthorizationFilter))]
-        //[TypeFilter(typeof(LogTimeFilter))]
         public ActionResult<List<EventReservation>> ConsultarReserva(string nome, string titulo)
         {
             Console.WriteLine("Iniciando");
@@ -41,9 +37,9 @@ namespace Trabalho_Final_ProgWebIII.Controllers
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [Authorize(Roles = "admin,cliente")]
         [ServiceFilter(typeof(GaranteEventoReservaActionFilter))]
-        //[TypeFilter(typeof(LogTimeFilter))]
         public ActionResult<EventReservation> Inserir(EventReservation reserva)
         {
             if (!_reservaService.InserirNovaReserva(reserva))
@@ -57,9 +53,9 @@ namespace Trabalho_Final_ProgWebIII.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ServiceFilter(typeof(GaranteReservaActionFilter))]
         [Authorize(Roles = "admin")]
-        //[TypeFilter(typeof(LogTimeFilter))]
         public ActionResult<List<EventReservation>> Atualizar([FromRoute] long id, EventReservation reserva)
         {
             if (!_reservaService.AlterarReserva(id, reserva))
@@ -73,9 +69,9 @@ namespace Trabalho_Final_ProgWebIII.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ServiceFilter(typeof(GaranteReservaActionFilter))]
         [Authorize(Roles = "admin")]
-        //[TypeFilter(typeof(LogTimeFilter))]
         public ActionResult<List<EventReservation>> Deletar([FromRoute] long id)
         {
             if (!_reservaService.DeletarReserva(id))
