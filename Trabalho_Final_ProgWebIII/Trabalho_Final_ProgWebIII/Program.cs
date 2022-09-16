@@ -10,8 +10,11 @@ using Microsoft.OpenApi.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
-builder.Services.AddControllers();
+builder.Services.AddControllers().ConfigureApiBehaviorOptions(options =>
+{
+    options.SuppressModelStateInvalidFilter = true;
+});
+//builder.Services.AddControllers();
 
 var key = Encoding.ASCII.GetBytes(builder.Configuration["secretKey"]);
 
@@ -66,7 +69,6 @@ builder.Services.AddMvc(options =>
     options.Filters.Add<GeneralExceptionFilter>();
 }
     );
-
 builder.Services.AddScoped<ICityEventService, CityEventService>();
 builder.Services.AddScoped<ICityEventRepository, CityEventRepository>();
 builder.Services.AddScoped<IEventReservationService, EventReservationService>();
