@@ -39,7 +39,6 @@ namespace Trabalho_Final_ProgWebIII.Controllers
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        //[ServiceFilter(typeof(CPFNaoEstaDuplicadoActionFilter))]
         //[TypeFilter(typeof(LogTimeFilter))]
         public ActionResult<EventReservation> Inserir(EventReservation reserva)
         {
