@@ -18,6 +18,7 @@ namespace Trabalho_Final_ProgWebIII.Controllers
         [HttpGet]
         public IActionResult CreateToken(string nome)
         {
+            //Alterar aqui entre "cliente" e "admin", para testes de autorização
             return Ok(_tokenService.GenerateTokenEventos(nome,"admin"));
         }
     }
