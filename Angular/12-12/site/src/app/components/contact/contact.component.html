@@ -1,0 +1,42 @@
+<div class="container">
+  <h1 class="text-center mb-4">Contato</h1>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Email</label>
+    <input
+      type="email"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="name@example.com"
+      [(ngModel)]="formData.email"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">CPF</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="000.000.000-00"
+      [(ngModel)]="formData.cpf"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Data</label>
+    <input
+      type="date"
+      class="form-control"
+      id="exampleFormControlInput1"
+      [(ngModel)]="formData.date"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Mensagem</label>
+    <textarea
+      class="form-control"
+      id="exampleFormControlTextarea1"
+      rows="3"
+      [(ngModel)]="formData.message"
+    ></textarea>
+  </div>
+  <button class="btn btn-primary" [disabled]="btnDisabled" (click)="submitForm()">Enviar</button>
+</div>

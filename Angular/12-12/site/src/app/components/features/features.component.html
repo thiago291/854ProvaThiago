@@ -1,0 +1,14 @@
+<div class="container">
+  <h1 class="text-center mb-4">{{ featuresData.sectionTitle }}</h1>
+  <div class="row">
+    <ng-container *ngFor="let feature of featuresData.features">
+      <div class="col features text-center" *ngIf="feature.isActive">
+        <img src="./assets/images/{{ feature.image }}" alt="" />
+        <div class="text-center">
+          <h4>{{ feature.title }}</h4>
+          <p>{{ feature.text }}</p>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

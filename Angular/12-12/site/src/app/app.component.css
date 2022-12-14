@@ -1,0 +1,14 @@
+#main {
+  min-height: 60vh;
+}
+
+.btn-top {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 32px;
+  margin-right: 32px;
+}
+
+.btn-top img {
+  height: 64px;
+}

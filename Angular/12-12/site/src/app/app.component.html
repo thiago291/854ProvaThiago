@@ -1,0 +1,56 @@
+<!-- Navbar -->
+<app-header [headerData]="data.header" (searchEmitter)="onSearchSubmitted($event)"></app-header>
+<!-- End Navbar -->
+
+<!-- Main -->
+<main id="main">
+  <!-- Carousel -->
+  <section id="carousel">
+    <app-carousel></app-carousel>
+  </section>
+  <!-- End Carousel -->
+
+  <!-- Features -->
+  <section id="features" class="my-5">
+    <app-features [featuresData]="data.features"></app-features>
+  </section>
+  <!-- End Features -->
+
+  <!-- About -->
+  <section id="about" class="my-5">
+    <app-about
+      [aboutData]="data.about"
+      (elementCreated)="onElementCreated($event)"
+    ></app-about>
+  </section>
+  <!-- End About -->
+
+  <!-- Address -->
+  <section id="address" class="my-5">
+    <app-address [addressData]="data.address"></app-address>
+  </section>
+  <!-- End Address -->
+
+  <!-- Cadastro -->
+  <section id="cadastro" class="my-5">
+    <app-cadastro (sendForm)="onCadastroFormSubmitted($event)"></app-cadastro>
+  </section>
+  <!-- End Cadastro -->
+
+  <!-- Contact -->
+  <section id="contact" class="my-5">
+    <app-contact (sendForm)="onContactFormSubmitted($event)"></app-contact>
+  </section>
+  <!-- End Contact -->
+
+  <div class="btn-top">
+    <a class="btn btn-link" href="#main">
+      <img src="./assets/images/seta-para-cima.png" alt="..." />
+    </a>
+  </div>
+</main>
+<!-- End Main -->
+
+<!-- Footer -->
+<app-footer></app-footer>
+<!-- End Footer -->

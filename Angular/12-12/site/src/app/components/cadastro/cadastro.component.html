@@ -1,0 +1,147 @@
+<div class="container">
+  <h1 class="text-center mb-4">Cadastro</h1>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Nome</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="João Silva"
+      [(ngModel)]="cadastroData.name"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">CPF</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="000.000.000-00"
+      [(ngModel)]="cadastroData.cpf"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label"
+      >Data de nascimento</label
+    >
+    <input
+      type="date"
+      class="form-control"
+      id="exampleFormControlInput1"
+      [(ngModel)]="cadastroData.birthdate"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">CEP</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="00000-000"
+      [(ngModel)]="cadastroData.zipCode"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Rua</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="Rua A"
+      [(ngModel)]="cadastroData.street"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Número</label>
+    <input
+    type="number"
+          class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="0"
+      min="0"
+      [(ngModel)]="cadastroData.number"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Complemento</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="(opcional)"
+      [(ngModel)]="cadastroData.complement"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Bairro</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="Bairro B"
+      [(ngModel)]="cadastroData.district"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Cidade</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="São Paulo"
+      [(ngModel)]="cadastroData.city"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Estado</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="São Paulo"
+      [(ngModel)]="cadastroData.state"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Email</label>
+    <input
+      type="email"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="name@example.com"
+      [(ngModel)]="cadastroData.email"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Telefone</label>
+    <input
+      type="number"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="(00)00000-0000"
+      [(ngModel)]="cadastroData.phone"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Usuário</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="Nome de usuário"
+      [(ngModel)]="cadastroData.username"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Senha</label>
+    <input
+      type="password"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="Senha"
+      [(ngModel)]="cadastroData.password"
+    />
+  </div>
+
+  <button class="btn btn-primary" (click)="submitForm()">Enviar</button>
+</div>
